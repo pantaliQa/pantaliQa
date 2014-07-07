@@ -1,0 +1,47 @@
+#N canvas 492 87 611 541 10;
+#X obj -38 5 cnv 15 600 25 empty empty PantaliQa_module_info 20 12
+0 14 -233017 -66577 0;
+#X text -21 65 Description:;
+#X text -20 128 Methods:;
+#X text -19 313 Outlets:;
+#X text -19 279 Inlets:;
+#X text -22 48 Category:;
+#X text 40 49 Source \;;
+#X text 57 279 method message;
+#X text 55 310 1 video stream;
+#X obj -36 429 cnv 15 600 25 empty empty Credits 20 12 0 14 -233017
+-66577 0;
+#X obj 361 71 cnv 15 200 90 empty empty empty 20 12 0 14 -1 -66577
+0;
+#X obj 452 90 hsl 80 15 1 20 0 0 \$0-xscale \$0-xscale.rcv XSCALE 2
+8 0 10 -128992 -262144 -258113 0 1;
+#X obj 452 120 hsl 80 15 0 359 0 0 \$0-rotate \$0-roteta.rcv ROTATE
+2 8 0 10 -128992 -262144 -258113 0 1;
+#X obj 389 102 bng 30 250 50 0 empty empty OpenFile -20 -8 0 10 -128992
+-262144 -258113;
+#X obj 452 105 hsl 80 15 1.01 200 0 0 \$0-scale \$0-scale.rcv SCALE
+2 8 0 10 -128992 -262144 -258113 0 1;
+#X obj 361 146 cnv 15 15 15 empty empty empty 20 12 0 14 -260097 -66577
+0;
+#X obj 361 51 cnv 15 200 20 empty empty Image_Player 20 12 0 14 -128992
+-262144 0;
+#X obj 361 51 cnv 15 15 15 empty empty empty 20 12 0 14 -4034 -66577
+0;
+#X obj 538 104 bng 15 250 50 0 \$0-reset \$0-reset.rcv empty 17 7 0
+10 -128992 -1 -1;
+#X text 58 65 Image player with some trasformation function;
+#X text 59 81 incorporated It accepts jpeg and tiff files \;;
+#X msg 46 129 xscale \$1;
+#X msg 46 154 scale \$1;
+#X msg 46 181 rotate \$1;
+#X msg 45 209 reset \$1;
+#X msg 45 239 load \$1;
+#X text 130 127 scale X cords [0 -1] \;;
+#X text 120 149 scale X and Y cords at same time [0 - 1];
+#X text 123 181 rotate on X axis [0 - 1];
+#X text 118 205 reset values to original position;
+#X text 104 236 load a Tiff or Jpeg file;
+#X text -22 457 by Luca Carrubba and Luca Franceschini for pantaliQa
+project - free to share/modify/cannibalize as you want - www.estereotips.net
+// info@estereotips.net;
+#X coords 0 0 1 1 203 173 0;

@@ -1,0 +1,63 @@
+#N canvas 0 0 866 511 10;
+#X obj 347 303 OSCize gemQ;
+#X obj 347 281 r incoming;
+#X msg 321 202 parse \$1;
+#X obj 321 161 getdir;
+#X obj 321 182 makefilename %s/OSCize-help.pd;
+#X obj 474 331 OSCnetwork 9000 0;
+#X obj 473 354 s incoming;
+#X obj -3 225 hsl 128 15 0 127 0 0 \$0-slider.alpha \$0-slider.alpha.r
+empty -2 -8 0 10 -262144 -1 -1 0 1;
+#X msg 444 283 connect localhost 9997;
+#X floatatom 312 229 5 0 0 0 - - -;
+#X obj 347 324 s outcoming;
+#X obj 474 305 r outcoming;
+#X msg 314 249 incoming /gemQ/slider.alpha.r \$1;
+#X obj 321 143 loadbang;
+#X text -16 156 This GUI object has a sender and a receive property
+;
+#X text 517 250 <- incoming message to route directly to gui Objects
+;
+#X obj -13 8 cnv 15 400 70 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X text 9 23 OSCize trasform internal send/receive pd messages into
+OSC messages. It reads send and receive property from GUI objects and
+;
+#X text 0 80 arguments: OSCize nameOfTheIstance [this name will be
+the first child in the OSC path];
+#X text 317 112 1 open udp (or tcp) receiver;
+#X text 379 203 <- 2 parse the current patch;
+#X text 585 282 <- 3 connect to the receiver;
+#X text 136 197 4 moves the gui objects;
+#X text 426 474 www.estereotips.net;
+#X text 426 461 released under G.P.L.;
+#X text 426 448 CopyLeft Luca Carrubba and Gabroral Complex \, 2011
+;
+#X text 138 249 and it will receive over;
+#X text 138 265 /gemQ/slider.alpha.r path;
+#X text 137 216 It will send to;
+#X text 137 232 /gemQ/slider.alpha path;
+#X obj -16 349 cnv 15 400 110 empty empty empty 20 12 0 14 -233017
+-66577 0;
+#X text 1 362 parse \$1: name of current patch. Every time you add
+a new gui object you need to parse again;
+#X text -1 388 incoming \$1: incoming OSC message to be redirect to
+the gui object (use in combination with OSCnetwork);
+#X text -2 417 Outlet:;
+#X text -6 349 Inlet:;
+#X text 11 432 OSC message to be sent;
+#X text 422 381 ATTENTION!!!;
+#X text 424 396 "\$0-" is mandatory inside send and receive message
+in order to OSCIze work properly. Others "-" character inside the messagge
+are not alowed;
+#X connect 0 0 10 0;
+#X connect 1 0 0 0;
+#X connect 2 0 0 0;
+#X connect 3 0 4 0;
+#X connect 4 0 2 0;
+#X connect 5 0 6 0;
+#X connect 8 0 5 0;
+#X connect 9 0 12 0;
+#X connect 11 0 5 0;
+#X connect 12 0 0 0;
+#X connect 13 0 3 0;

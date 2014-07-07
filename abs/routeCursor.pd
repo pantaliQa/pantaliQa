@@ -1,0 +1,16 @@
+#N canvas 9 59 450 300 10;
+#X obj 146 158 route /cursor;
+#X obj 145 132 inlet;
+#X obj 146 181 route \$1;
+#X obj 145 240 outlet;
+#X obj 204 241 outlet;
+#X obj 147 209 unpack 0 0 0 0 0;
+#X obj 267 243 outlet;
+#X obj 314 241 outlet;
+#X connect 0 0 2 0;
+#X connect 1 0 0 0;
+#X connect 2 0 5 0;
+#X connect 5 0 3 0;
+#X connect 5 1 4 0;
+#X connect 5 2 6 0;
+#X connect 5 3 7 0;

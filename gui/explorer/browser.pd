@@ -1,0 +1,210 @@
+#N canvas 447 101 914 665 10;
+#X msg 486 186 clear;
+#X msg 651 205 label labelizer;
+#X floatatom 514 89 5 0 0 0 - - -;
+#X obj 183 35 vsl 15 115 0 175 0 0 \$0slider_s \$0slider_r empty 0
+-8 0 8 -1 -262144 -1 11400 0;
+#X obj 1 33 hradio 15 1 0 12 \$0hr_0_s \$0hr_0_r browser.pd 2 8 1 15
+-1 -1 -262140 0;
+#X obj 1 48 hradio 15 1 0 12 \$0hr_1_s \$0hr_1_r gBrowser.pd 2 8 1
+15 -1 -1 -262140 0;
+#X obj 1 63 hradio 15 1 0 12 \$0hr_2_s \$0hr_2_r empty 2 8 1 15 -1
+-1 -262144 0;
+#X obj 1 78 hradio 15 1 0 12 \$0hr_3_s \$0hr_3_r empty 2 8 1 15 -1
+-1 -262144 0;
+#X obj 1 93 hradio 15 1 0 12 \$0hr_4_s \$0hr_4_r empty 2 8 1 15 -1
+-1 -262144 0;
+#X obj 1 108 hradio 15 1 0 12 \$0hr_5_s \$0hr_5_r empty 2 8 1 15 -1
+-1 -262144 0;
+#X obj 1 123 hradio 15 1 0 12 \$0hr_6_s \$0hr_6_r empty 2 8 1 15 -1
+-1 -262144 0;
+#X obj 1 138 hradio 15 1 0 12 \$0hr_7_s \$0hr_7_r empty 2 8 1 15 -1
+-1 -262144 0;
+#X text 783 176 Change the label;
+#X floatatom 716 272 5 0 0 1 size - -;
+#X msg 652 387 colorRGB 0 255 0;
+#X text 759 364 Change the color of the next entry;
+#X msg 652 365 colorRGB 0 0 255;
+#X obj 652 318 pack 0 10;
+#X obj 716 294 t b a;
+#X msg 652 341 text.font \$1 \$2;
+#X msg 652 409 select.colorRGB 125 125 125;
+#X text 827 409 Change the select color;
+#X obj 15 17 hradio 15 1 0 11 \$0label_radio_s \$0label_radio_r empty
+2 8 0 8 -1 -1 -262144 0;
+#X obj 1 17 cnv 15 197 15 empty \$0hider /home/husk/pd/planetQ/satellite/trunk/common/pantaliQa/gui/explorer
+3 9 0 8 -99865 -262144 0;
+#X floatatom 655 571 5 0 0 0 - - -;
+#X text 691 570 index outlet;
+#X obj 318 78 folder_list;
+#X obj 320 116 split_path;
+#X obj 383 146 t b a;
+#X obj 226 471 symbol;
+#X obj 480 692 mergefilename /;
+#X obj 354 258 t b a;
+#X obj 372 304 symbol;
+#X obj 318 -27 loadbang;
+#X obj 297 143 t a a;
+#X msg 438 273 clear;
+#X obj 406 251 t b b;
+#X obj 318 8 getdir;
+#X obj 318 -12 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 321 30 makefilename %s/*;
+#X obj 321 53 t a b;
+#X obj 232 174 symbol;
+#X obj 403 332 splitfilename .;
+#X floatatom 556 451 5 0 0 0 - - -;
+#X obj 480 453 s2l;
+#X msg 501 433 symbol;
+#X obj 484 479 list length;
+#X obj 515 411 loadbang;
+#X obj 515 380 initbang;
+#X obj 480 505 != 0;
+#X obj 479 528 sel 1;
+#X obj 558 593 symbol;
+#X obj 478 670 pack s s;
+#X obj 480 575 t b b;
+#X obj 462 640 symbol;
+#X obj 222 567 mergefilename /;
+#X obj 217 609 makefilename %s/*;
+#X obj 203 710 s \$0-gotodir;
+#X obj 364 8 r \$0-gotodir;
+#X obj 252 331 s \$0-gotodir;
+#X obj 228 259 makefilename %s/*;
+#X floatatom 529 512 5 0 0 0 - - -;
+#X obj 506 551 t b;
+#X obj 221 543 pack s s;
+#X obj 330 320 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 543 650 ---- file output;
+#X obj 360 581 del 10;
+#X obj 445 612 del 10;
+#X obj 486 712 splitfilename /;
+#X obj 561 745 outlet dir;
+#X obj 481 742 outlet file;
+#X obj 356 710 s \$0-file;
+#X obj 224 597 s \$0-dir;
+#X obj 412 728 s \$0-dir;
+#X obj 258 114 r \$0-dir;
+#X obj 229 201 splitfilename /;
+#X obj 644 733 outlet index;
+#X obj 510 6 inlet;
+#X obj 386 -27 initbang;
+#X obj 536 150 symbol;
+#X obj 531 112 r \$0-dir;
+#X msg 652 283 1;
+#X obj 648 252 loadbang;
+#X obj 15 1 cnv 15 183 15 empty empty File_browser 20 8 0 10 -99865
+-262144 0;
+#X obj 15 154 cnv 15 183 15 empty empty empty 20 8 0 10 -1 -1 0;
+#X msg 530 187 label \$1;
+#X obj 1 1 cnv 15 15 15 empty empty empty 20 12 0 14 -4034 -66577 0
+;
+#X obj 1 154 cnv 15 15 15 empty empty empty 20 12 0 14 -4034 -66577
+0;
+#X obj 183 154 cnv 15 15 15 empty empty empty 20 12 0 14 -4034 -66577
+0;
+#X obj 65 153 cnv 15 15 15 empty empty empty 20 12 0 14 -4034 -66577
+0;
+#X obj 361 225 gBrowser \$0;
+#X msg 719 236 12;
+#X obj 510 28 route float size location;
+#X obj 609 62 symbol;
+#X floatatom 654 435 5 0 0 0 - - -;
+#X obj 830 592 outlet lenght;
+#X obj 123 153 cnv 15 15 15 empty empty empty 20 12 0 14 -4034 -66577
+0;
+#X obj 579 281 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 572 241 del 500;
+#X connect 0 0 90 1;
+#X connect 1 0 90 1;
+#X connect 2 0 90 0;
+#X connect 13 0 18 0;
+#X connect 14 0 90 1;
+#X connect 16 0 90 1;
+#X connect 17 0 19 0;
+#X connect 18 0 17 0;
+#X connect 18 1 17 1;
+#X connect 19 0 90 1;
+#X connect 20 0 90 1;
+#X connect 24 0 76 0;
+#X connect 26 0 27 0;
+#X connect 27 0 34 0;
+#X connect 27 1 28 0;
+#X connect 28 0 90 1;
+#X connect 28 1 90 1;
+#X connect 29 0 63 0;
+#X connect 30 0 68 0;
+#X connect 30 0 70 0;
+#X connect 30 0 71 0;
+#X connect 31 0 98 0;
+#X connect 31 1 32 0;
+#X connect 32 0 42 0;
+#X connect 32 0 51 1;
+#X connect 32 0 63 1;
+#X connect 32 0 52 1;
+#X connect 33 0 38 0;
+#X connect 34 0 29 1;
+#X connect 34 0 54 1;
+#X connect 34 1 41 1;
+#X connect 34 1 79 0;
+#X connect 36 0 41 0;
+#X connect 36 0 98 0;
+#X connect 36 1 35 0;
+#X connect 37 0 39 0;
+#X connect 38 0 37 0;
+#X connect 39 0 40 0;
+#X connect 40 0 26 0;
+#X connect 40 1 0 0;
+#X connect 41 0 75 0;
+#X connect 42 1 44 0;
+#X connect 44 0 46 0;
+#X connect 45 0 44 1;
+#X connect 46 0 49 0;
+#X connect 47 0 45 0;
+#X connect 48 0 45 0;
+#X connect 49 0 50 0;
+#X connect 49 0 61 0;
+#X connect 50 0 53 0;
+#X connect 50 1 62 0;
+#X connect 52 0 30 0;
+#X connect 53 0 67 0;
+#X connect 53 1 51 0;
+#X connect 54 0 52 0;
+#X connect 55 0 56 0;
+#X connect 55 0 72 0;
+#X connect 56 0 57 0;
+#X connect 58 0 40 0;
+#X connect 60 0 59 0;
+#X connect 62 0 66 0;
+#X connect 63 0 55 0;
+#X connect 64 0 32 0;
+#X connect 66 0 29 0;
+#X connect 67 0 54 0;
+#X connect 68 0 69 0;
+#X connect 68 0 73 0;
+#X connect 74 0 41 1;
+#X connect 75 0 60 0;
+#X connect 77 0 92 0;
+#X connect 78 0 38 0;
+#X connect 79 0 85 0;
+#X connect 80 0 79 0;
+#X connect 81 0 17 0;
+#X connect 82 0 81 0;
+#X connect 82 0 91 0;
+#X connect 85 0 90 1;
+#X connect 90 0 31 0;
+#X connect 90 1 94 0;
+#X connect 90 2 36 0;
+#X connect 90 3 24 0;
+#X connect 91 0 18 0;
+#X connect 92 0 2 0;
+#X connect 92 1 13 0;
+#X connect 92 2 93 0;
+#X connect 93 0 39 0;
+#X connect 94 0 95 0;
+#X connect 97 0 90 2;
+#X connect 98 0 97 0;
+#X coords 0 -1 1 1 199 170 1 0 0;

@@ -1,0 +1,99 @@
+#N canvas 1 119 951 647 10;
+#X declare -path abs;
+#X declare -path utils/pdmtl;
+#X declare -path utils/OSCizer;
+#X obj 381 458 outlet;
+#N canvas 7 190 450 300 readme 0;
+#X text 74 65 methods;
+#X msg 79 130 blur \$1;
+#X text 143 125 beetween 0 and 1;
+#X msg 82 186 status \$1;
+#X text 150 185 0 or 1;
+#X restore 833 89 pd readme;
+#N canvas 9 244 450 300 init 0;
+#X obj 259 114 declare -path abs;
+#X obj 260 134 declare -path utils/pdmtl;
+#X obj 261 154 declare -path utils/OSCizer;
+#X restore 837 117 pd init;
+#X obj 543 55 inlet;
+#X obj 101 121 cnv 15 200 50 empty empty empty 20 12 0 14 -1 -66577
+0;
+#X obj 101 156 cnv 15 15 15 empty empty empty 20 12 0 14 -260097 -66577
+0;
+#N canvas 15 406 450 300 osc 0;
+#X obj 145 16 loadbang;
+#X msg 209 115 parse \$1;
+#X obj 120 186 s outcoming;
+#X obj 226 52 getdir;
+#X obj 235 27 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 121 121 r incoming;
+#X obj 307 -93 r osc-status;
+#X obj 307 -70 sel 1;
+#X obj 308 -31 once;
+#X obj 221 77 makefilename %s/motionblur.pd;
+#X obj 121 149 OSCize motionblur\$0;
+#X connect 1 0 10 0;
+#X connect 3 0 9 0;
+#X connect 4 0 3 0;
+#X connect 5 0 10 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 8 0 4 0;
+#X connect 9 0 1 0;
+#X connect 10 0 2 0;
+#X restore 838 138 pd osc;
+#X obj 101 101 cnv 15 200 20 empty \$0-name MOTIONBLUR_tt 20 12 0 14
+-128992 -262144 0;
+#X obj 420 180 gems.motion.blur 0.4;
+#X text 570 298 by Luca Carrubba - for gemq.info project - free to
+share/modify/cannibalize as you want - www.estereotips.net // luca@estereotips.net
+// hardly based on the work of Alexandre Quessy for PDMTL abstraction
+library;
+#X obj 442 44 inlet;
+#X obj 285 100 cnv 15 15 15 empty empty empty 20 12 0 14 -4034 -66577
+0;
+#X obj 101 100 cnv 15 15 15 empty empty empty 20 12 0 14 -260097 -66577
+0;
+#X obj 546 103 route blur status;
+#X obj 254 290;
+#X obj 316 201 gate 2;
+#X obj 307 183 + 1;
+#X obj 317 13 namecanvas \$1;
+#X obj 106 130 myhslider Blur;
+#X obj 235 124 mytgl on/off;
+#X obj 206 234 s \$0-blur;
+#X obj 696 204 prepend \$0;
+#X obj 691 151 startbang;
+#X obj 697 176 symbol \$1;
+#N canvas 811 329 450 300 visualize 0;
+#X obj 68 103 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 57 132 list prepend \$1;
+#X obj 28 37 r /global/vis;
+#X obj 36 65 r /\$1/vis;
+#X msg 63 168 \; \$1 donecanvasdialog 1 -1 \$2 0 -1 1 1 201 71 100
+100;
+#X connect 0 0 1 0;
+#X connect 1 0 4 0;
+#X connect 2 0 1 0;
+#X connect 3 0 1 0;
+#X restore 847 60 pd visualize;
+#X msg 696 226 \; \$1-name label MOTIONBLUR_\$2;
+#X obj 345 81 startbang;
+#X msg 337 113 0;
+#X connect 3 0 13 0;
+#X connect 8 0 0 0;
+#X connect 10 0 15 1;
+#X connect 13 1 19 0;
+#X connect 15 0 0 0;
+#X connect 15 1 8 0;
+#X connect 16 0 15 0;
+#X connect 18 0 20 0;
+#X connect 19 0 16 0;
+#X connect 21 0 25 0;
+#X connect 22 0 23 0;
+#X connect 23 0 21 0;
+#X connect 26 0 27 0;
+#X connect 27 0 19 0;
+#X coords 0 -1 1 1 201 71 1 100 100;

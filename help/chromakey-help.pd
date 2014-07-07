@@ -1,0 +1,51 @@
+#N canvas 0 0 707 531 10;
+#X obj -28 14 cnv 15 600 25 empty empty PantaliQa_module_info 20 12
+0 14 -233017 -66577 0;
+#X text -11 74 Description:;
+#X text -10 137 Methods:;
+#X text -9 322 Outlets:;
+#X text -9 288 Inlets:;
+#X text -12 57 Category:;
+#X text 69 88 for .wav file with same name of the loaded video;
+#X text 68 101 file in the same directory. If it is found it;
+#X text 68 114 audio is loaded and synched with video \;;
+#X text 67 288 method message;
+#X text 65 319 1 video stream;
+#X obj -26 438 cnv 15 600 25 empty empty Credits 20 12 0 14 -233017
+-66577 0;
+#X obj 364 81 cnv 15 218 169 empty empty empty 20 12 0 14 -1 -66577
+0;
+#X obj 364 62 cnv 15 218 20 empty empty Chromakey 20 12 0 14 -128992
+-262144 0;
+#X obj 566 62 cnv 15 15 15 empty empty empty 20 12 0 14 -4034 -66577
+0;
+#X obj 398 88 tgl 15 0 \$0-status \$0-status.rcv On/Off -10 23 0 10
+-128992 -262144 -258113 0 1;
+#X obj 438 216 hsl 80 15 0 1 0 0 \$0-tollerance \$0-tollerance.rcv
+Tollerance 2 8 0 10 -128992 -262144 -258113 0 1;
+#X obj 489 88 tgl 15 0 \$0-direction \$0-direction.rcv Direction -25
+23 0 10 -128992 -262144 -258113 0 1;
+#X obj 363 61 cnv 15 15 15 empty empty empty 20 12 0 14 -260097 -66577
+0;
+#X obj 364 235 cnv 15 15 15 empty empty empty 20 12 0 14 -260097 -66577
+0;
+#X obj 474 61 cnv 15 15 15 empty empty empty 20 12 0 14 -260097 -66577
+0;
+#X obj 364 62 cnv 15 10 10 empty empty Chromakey 20 12 0 14 -128992
+-262144 0;
+#X obj 363 62 cnv 15 15 15 empty empty empty 20 12 0 14 -260097 -66577
+0;
+#X obj 377 121 input.color.grid_;
+#X text 50 58 Effect \;;
+#X text 68 74 chromakey effect for video stream;
+#X msg 70 140 colors \$1;
+#X msg 68 172 status \$1;
+#X msg 69 201 tollerance \$1;
+#X msg 70 227 direction \$1;
+#X text 133 139 set key color for chroma effect \; [0 - 1];
+#X text 136 169 turn on/off the effect \; [0 | 1];
+#X text 163 196 control tollerance slider \; [0 - 1];
+#X text 155 223 \; A to B or B to A [0 | 1];
+#X text -12 466 by Luca Carrubba and Luca Franceschini for pantaliQa
+project. hardly based on pix_chroma_key object from Gem - free to share/modify/cannibalize
+as you want - www.estereotips.net // info@estereotips.net;

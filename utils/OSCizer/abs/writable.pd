@@ -1,0 +1,20 @@
+#N canvas 473 180 450 300 10;
+#X obj 104 100 hsl 153 29 0 127 0 0 empty empty /\$1/\$2 13 7 0 8 -260097
+-260097 -99865 0 1;
+#X obj 101 100 cnv 15 15 15 empty empty empty 20 12 0 14 -99865 -258113
+0;
+#X obj 122 118 nbx 5 10 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 7
+-260097 -99865 -99865 0 256;
+#X obj 101 101 cnv 4 4 5 empty empty empty 20 12 0 14 -260097 -66577
+0;
+#X obj 101 149 s \$3-\$2;
+#X obj 98 51 inlet;
+#X obj 190 169 \$4;
+#X obj 221 210 s writable-id;
+#X obj 187 149 t b;
+#X connect 0 0 8 0;
+#X connect 2 0 4 0;
+#X connect 5 0 2 0;
+#X connect 6 0 7 0;
+#X connect 8 0 6 0;
+#X coords 0 -1 1 1 160 30 2 100 100;

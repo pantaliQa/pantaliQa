@@ -1,0 +1,61 @@
+#N canvas 210 14 611 541 10;
+#X obj -38 5 cnv 15 600 25 empty empty PantaliQa_module_info 20 12
+0 14 -233017 -66577 0;
+#X text -21 65 Description:;
+#X text -20 133 Methods:;
+#X text -19 313 Outlets:;
+#X text -19 279 Inlets:;
+#X text -22 48 Category:;
+#X text 40 49 Source \;;
+#X text 302 54 control scrath slider \; [0 - 1];
+#X text 309 86 set loop in and loop out point \; [0 - 1];
+#X text 317 116 control velocity slider \; [0 - 1];
+#X text 302 143 open video file \; [filepath];
+#X obj -36 429 cnv 15 600 25 empty empty Credits 20 12 0 14 -233017
+-66577 0;
+#X obj 294 56 cnv 15 270 130 empty empty empty 20 12 0 14 -1 -66577
+0;
+#X obj 294 36 cnv 15 270 20 empty empty Get_audio 20 12 0 14 -128992
+-262144 0;
+#X obj 315 76 nbx 4 14 -1e+37 1e+37 0 0 empty empty IN_volume 0 -8
+0 10 -128992 -262144 -258113 0 256;
+#X obj 315 109 vsl 15 48 0 100 0 0 \$0-low empty Low -5 -9 0 10 -128992
+-262144 -258113 0 1;
+#X obj 353 108 vsl 15 48 0 100 0 0 \$0-middle empty Middle -9 59 0
+10 -128992 -262144 -258113 0 1;
+#X obj 387 108 vsl 15 48 0 100 0 0 \$0-high empty High -7 -9 0 10 -128992
+-262144 -258113 0 1;
+#X obj 425 104 bng 15 250 50 0 \$0-bass.attack empty Bass.attack 17
+7 0 10 -128992 -262144 -258113;
+#X obj 425 123 bng 15 250 50 0 \$0-middle.attack empty Middle.attack
+17 7 0 10 -128992 -262144 -258113;
+#X obj 425 143 bng 15 250 50 0 \$0-high.attack empty high.attack 17
+7 0 10 -128992 -262144 -258113;
+#X obj 294 171 cnv 15 15 15 empty empty empty 20 12 0 14 -4034 -66577
+0;
+#X obj 549 171 cnv 15 15 15 empty empty empty 20 12 0 14 -4034 -66577
+0;
+#X obj 350 171 cnv 15 15 15 empty empty empty 20 12 0 14 -4034 -66577
+0;
+#X obj 397 171 cnv 15 15 15 empty empty empty 20 12 0 14 -4034 -66577
+0;
+#X obj 448 171 cnv 15 15 15 empty empty empty 20 12 0 14 -4034 -66577
+0;
+#X obj 505 171 cnv 15 15 15 empty empty empty 20 12 0 14 -4034 -66577
+0;
+#X text 60 63 takes the audio input from your system;
+#X text 57 78 and outputs its RMS amplitude in dB for;
+#X text 57 95 1khz \, 3khz and 16khz. Also it outputs;
+#X text 53 133 No methods \;;
+#X text 57 110 a bang on attack of this frequencies \;;
+#X text 57 279 No inlets;
+#X text 55 310 1 1khz RMS amplitude;
+#X text 54 327 2 3khz RMS amplitude;
+#X text 54 343 3 16 khz RMS amplitude;
+#X text 54 361 4 1khz attack detection;
+#X text 55 377 5 3khz attack detection;
+#X text 56 394 6 16 khz attack detecion;
+#X text -22 457 by Luca Carrubba and Luca Franceschini for pantaliQa
+project. Stared originally from Xavi Manzanares - free to share/modify/cannibalize
+as you want - www.estereotips.net // info@estereotips.net;
+#X coords 0 0 1 1 203 173 0;

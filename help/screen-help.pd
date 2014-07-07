@@ -1,0 +1,71 @@
+#N canvas 210 14 611 541 10;
+#X obj -38 5 cnv 15 600 25 empty empty PantaliQa_module_info 20 12
+0 14 -233017 -66577 0;
+#X text -21 65 Description:;
+#X text -20 128 Methods:;
+#X text -23 384 Outlets:;
+#X text -19 362 Inlets:;
+#X text -22 48 Category:;
+#X text 55 362 method message;
+#X obj -36 429 cnv 15 600 25 empty empty Credits 20 12 0 14 -233017
+-66577 0;
+#X obj 318 54 cnv 15 250 200 empty empty empty 20 12 0 14 -1 -66577
+0;
+#X obj 317 36 cnv 15 250 20 empty empty Screen 20 12 0 14 -128992 -262144
+0;
+#X obj 324 75 tgl 15 0 \$0-status \$0-status.rcv On/Off 17 7 0 10 -128992
+-262144 -258113 0 1;
+#X obj 517 107 vsl 15 70 0 1 0 0 \$0-alpha \$0-alpha.rcv Alpha 0 -9
+0 10 -128992 -262144 -258113 0 1;
+#X obj 479 199 nbx 8 14 0 1e+37 0 0 empty empty FadeTime 0 -8 0 10
+-1 -262144 -258113 0 256;
+#X obj 479 214 hradio 16 1 0 4 \$0-fadetype \$0-fadetype.rcv empty
+0 8 0 10 -128992 -262144 -258113 0;
+#X obj 479 230 cnv 15 80 20 empty \$0-fade FadeIn 10 12 0 10 -1 -262144
+0;
+#X obj 543 214 bng 16 250 50 0 \$0-fadestart \$0-fadestart.rcv empty
+17 7 0 10 -128992 -262144 -258113;
+#X obj 417 224 bng 16 250 50 0 \$0-dim.reset \$0-dim.reset.rcv Reset
+-6 -8 0 10 -128992 -262144 -258113;
+#X obj 326 209 hsl 80 15 0 1 0 0 \$0-dimX \$0-dimX.rcv DimensionX 2
+8 0 10 -128992 -262144 -258113 0 1;
+#X obj 326 226 hsl 80 15 0 1 0 0 \$0-dimY \$0-dimY.rcv DimensionY 2
+8 0 10 -128992 -262144 -258113 0 1;
+#X obj 317 35 cnv 15 15 15 empty empty empty 20 12 0 14 -260097 -66577
+0;
+#X obj 553 35 cnv 15 15 15 empty empty empty 20 12 0 14 -4034 -66577
+0;
+#X obj 323 97 ../utils/pdmtl/input.color.grid_;
+#X text 40 49 Output \;;
+#X text 58 65 It's the render surface. The connection;
+#X text 59 79 with output window. You need it in order;
+#X text 58 92 to visualize content in pantaliQa window;
+#X msg 32 128 fixed;
+#X msg 32 212 fadeIn \$1;
+#X msg 32 231 fadeOut \$1;
+#X msg 32 253 fadeInOut;
+#X msg 33 273 fadeOutIn;
+#X msg 33 192 alpha \$1;
+#X msg 32 170 colors \$1 \$2 \$3;
+#X msg 33 295 reset;
+#X text 56 386 No outlets;
+#X text -22 457 by Luca Carrubba and Luca Franceschini for pantaliQa
+project- free to share/modify/cannibalize as you want - www.estereotips.net
+// info@estereotips.net;
+#X text 75 126 set screen dimension equal to window;
+#X msg 33 149 mobile \$1 \$2;
+#X text 115 149 set screen dimension [0 - 1];
+#X text 136 170 set screen color [0 - 1];
+#X text 103 191 set screen alpha;
+#X text 93 211 fadeIn transition in given time [mls];
+#X text 94 230 fadeOut transition in given time [mls];
+#X text 94 255 fadeIn first and FadeOut then transition in given time
+[mls];
+#X text 95 276 fadeOut first and FadeIn then transition in given time
+[mls];
+#X text 70 293 reset screen dimension to fixed;
+#X msg 34 314 on;
+#X text 61 314 turn on screen;
+#X msg 34 334 off;
+#X text 61 334 turn off screen;
+#X coords 0 0 1 1 203 173 0;

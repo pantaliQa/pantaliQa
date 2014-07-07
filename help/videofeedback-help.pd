@@ -1,0 +1,43 @@
+#N canvas 0 0 631 618 10;
+#X obj 12 15 cnv 15 600 25 empty empty PantaliQa_module_info 20 12
+0 14 -233017 -66577 0;
+#X text 29 75 Description:;
+#X text 30 138 Methods:;
+#X text 31 372 Outlets:;
+#X text 29 314 Inlets:;
+#X text 28 58 Category:;
+#X text 103 316 method message;
+#X text 105 373 1 video stream;
+#X obj 14 488 cnv 15 600 25 empty empty Credits 20 12 0 14 -233017
+-66577 0;
+#X text 90 59 Effect \;;
+#X msg 106 141 status \$1;
+#X text 169 140 turn on/off the effect \; [0 | 1];
+#X obj 453 76 cnv 15 158 70 empty empty empty 20 12 0 14 -1 -66577
+0;
+#X obj 453 57 cnv 15 158 20 empty empty VideoFeedback 20 12 0 14 -128992
+-262144 0;
+#X obj 597 56 cnv 15 15 15 empty empty empty 20 12 0 14 -4034 -66577
+0;
+#X obj 452 132 cnv 15 15 15 empty empty empty 20 12 0 14 -260097 -66577
+0;
+#X obj 452 56 cnv 15 10 10 empty empty VideoFeedback 20 12 0 14 -128992
+-262144 0;
+#X obj 568 105 tgl 15 0 \$0-status \$0-status.rcv On/off -10 -7 0 10
+-128992 -262144 -258113 0 1;
+#X obj 471 90 hsl 80 15 0 1 0 0 \$0-ammount \$0-ammount.rcv Ammount
+2 8 0 10 -128992 -262144 -258113 0 1;
+#X obj 471 111 hsl 80 15 0 1 0 0 \$0-direction \$0-direction.rcv Direction
+2 8 0 10 -128992 -262144 -258113 0 1;
+#X msg 108 173 ammount \$1;
+#X msg 107 205 direction \$1;
+#X text 18 526 by Luca Carrubba - for gemq.info project - free to share/modify/cannibalize
+as you want - www.estereotips.net // luca@estereotips.net // hardly
+based on the work of Alexandre Quessy for PDMTL abstraction library
+;
+#X text 176 170 ammount of feedback \; [0 - 1] [0 - 1];
+#X text 187 203 direction of the feedback [0 - 1];
+#X text 106 76 It generates a fedback in the back of proyecton. In
+order to see the effect is important to reduce the dimension of the
+screen. This effect is global and it not needs to be connected to the
+data flow.;

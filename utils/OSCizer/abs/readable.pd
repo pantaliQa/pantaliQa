@@ -1,0 +1,61 @@
+#N canvas 378 24 450 396 10;
+#X obj 104 101 hsl 152 28 0 127 0 0 empty empty /\$1/\$2 -2 7 0 8 -262144
+-262144 -33289 0 1;
+#X obj 109 116 nbx 5 10 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 7
+-262144 -1 -1 0 256;
+#X obj -41 262 outlet;
+#X obj 120 62 r \$3-\$2;
+#X obj 103 179 \$4;
+#X obj 103 231 s readable-id;
+#X obj 308 261 outlet;
+#X obj 99 -2 r readable-color;
+#X obj 141 287 s readable-color;
+#X msg -53 -14 color \$1 \$2 \$3;
+#X msg 142 266 color 0 0 12;
+#X obj 49 -10 cnv 15 15 15 empty \$0-connectionCanvas empty 20 12 0
+14 -228992 -33289 0;
+#X obj 55 -4 cnv 4 4 5 empty empty empty 20 12 0 14 -262144 -66577
+0;
+#X msg -61 58 color 15 3 -1.67442e+07;
+#X msg -67 25 color 21 21 -1.67442e+07;
+#X obj 244 113 tgl 15 0 empty empty empty 17 7 0 10 -228992 -262144
+-33289 0 1;
+#X obj 251 120 tgl 8 0 empty empty empty 17 7 0 10 -262144 -262144
+-262144 0 1;
+#X obj 244 78 r select-connection;
+#X obj 198 229 s select-connection;
+#X msg 151 185 color 38 0 12;
+#X msg 180 206 color 12 12 12;
+#X obj 226 3 r \$0-connected;
+#X obj 270 177 \$0;
+#X obj 273 200 s dollararg-gui;
+#X obj 103 148 t b b b b b b;
+#X msg 255 53 color 38 38 12;
+#X obj 100 40 spigot 1;
+#X obj 227 23 t f b;
+#X obj 275 23 sel 1;
+#X connect 0 0 24 0;
+#X connect 1 0 6 0;
+#X connect 3 0 1 0;
+#X connect 4 0 5 0;
+#X connect 7 0 26 0;
+#X connect 10 0 8 0;
+#X connect 13 0 0 0;
+#X connect 14 0 0 0;
+#X connect 17 0 15 0;
+#X connect 19 0 15 0;
+#X connect 20 0 18 0;
+#X connect 21 0 27 0;
+#X connect 21 0 28 0;
+#X connect 22 0 23 0;
+#X connect 24 0 4 0;
+#X connect 24 2 10 0;
+#X connect 24 3 19 0;
+#X connect 24 4 20 0;
+#X connect 24 5 22 0;
+#X connect 25 0 0 0;
+#X connect 26 0 0 0;
+#X connect 27 0 26 1;
+#X connect 27 1 25 0;
+#X connect 28 0 10 0;
+#X coords 0 -1 1 1 160 30 2 100 100;

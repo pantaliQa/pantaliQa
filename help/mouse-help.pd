@@ -1,0 +1,47 @@
+#N canvas 210 14 611 541 10;
+#X obj -38 5 cnv 15 600 25 empty empty PantaliQa_module_info 20 12
+0 14 -233017 -66577 0;
+#X text -21 65 Description:;
+#X text -20 128 Methods:;
+#X text -19 313 Outlets:;
+#X text -19 279 Inlets:;
+#X text -22 48 Category:;
+#X text 40 49 Source \;;
+#X text 58 65 video player with audio capabilities. It looks;
+#X text 59 79 for .wav file with same name of the loaded video;
+#X text 58 92 file in the same directory. If it is found it;
+#X text 58 105 audio is loaded and synched with video \;;
+#X text 57 279 method message;
+#X obj -36 429 cnv 15 600 25 empty empty Credits 20 12 0 14 -233017
+-66577 0;
+#X obj 412 69 cnv 15 148 50 empty empty empty 20 12 0 14 -1 -66577
+0;
+#X obj 412 49 cnv 15 148 20 empty empty Mouse 20 12 0 14 -128992 -262144
+0;
+#X obj 459 85 hradio 15 1 0 2 \$0-target \$0-target.rcv Window 0 -8
+0 10 -128992 -262144 -258113 0;
+#X obj 545 49 cnv 15 15 15 empty empty empty 20 12 0 14 -4034 -66577
+0;
+#X obj 412 104 cnv 15 15 15 empty empty empty 20 12 0 14 -4034 -66577
+0;
+#X obj 545 104 cnv 15 15 15 empty empty empty 20 12 0 14 -4034 -66577
+0;
+#X obj 444 104 cnv 15 15 15 empty empty empty 20 12 0 14 -4034 -66577
+0;
+#X obj 476 104 cnv 15 15 15 empty empty empty 20 12 0 14 -4034 -66577
+0;
+#X obj 510 104 cnv 15 15 15 empty empty empty 20 12 0 14 -4034 -66577
+0;
+#X msg 60 131 target \$1;
+#X text 124 128 set mouse target (output window or patch window) \;
+[0 - 1];
+#X text 55 310 1 mouse X cords [0 - 1];
+#X text 54 327 2 mouse Y cords [0 - 1];
+#X text 54 343 3 Left mouse button status [0 | 1];
+#X text 54 361 4 Middle mouse button status [0 | 1];
+#X text 55 377 5 Rigth mouse button status [0 | 1];
+#X text -22 457 by Luca Carrubba and Luca Franceschini for pantaliQa
+project. hardly based on mouse pdmtl abstraction originally from Alexandre
+Quessy - free to share/modify/cannibalize as you want - www.estereotips.net
+// info@estereotips.net;
+#X coords 0 0 1 1 203 173 0;

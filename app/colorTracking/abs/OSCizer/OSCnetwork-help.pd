@@ -1,0 +1,35 @@
+#N canvas 0 0 450 511 10;
+#X msg 87 137 connect localhost 9999;
+#X obj 122 270 print;
+#X text 255 186 <- OSC message;
+#X text 226 137 <- connection settings;
+#X text 234 216 <- Port and protocol type;
+#X msg 125 185 /puredata/banana 555;
+#X obj 10 7 cnv 15 400 70 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X msg 111 162 disconnect;
+#X text 32 25 OSCnetwork is a OSC sender/receiver over TCP or UDP protocol.
+;
+#X obj 122 217 OSCnetwork 9996 0;
+#X text 28 325 - connection settings: ip address and local port;
+#X text 28 340 - disconnect;
+#X text 29 355 - OSC message: OSC path and value you want to send.
+Note \, here you don't need to prepend send keyword;
+#X text 20 387 Outlet:;
+#X text 15 302 Inlet:;
+#X text 13 92 if any second argument is given udp protocol is default
+;
+#X text 15 104 first argument is mandatory;
+#X text 13 79 arguments: OSCnetwork port udp|tcp [0|1];
+#X text 165 272 <- incoming OSC messages;
+#X text 39 409 - incoming OSC message;
+#X text 27 497 www.estereotips.net;
+#X text 23 486 released under G.P.L.;
+#X text 20 470 CopyLeft Luca Carrubba and Gabroral Complex \, 2011
+;
+#X text 19 445 OSCnetwork was developed by Luca Carrubba and Gaboral
+Complex as part of OSCizer library;
+#X connect 0 0 9 0;
+#X connect 5 0 9 0;
+#X connect 7 0 9 0;
+#X connect 9 0 1 0;

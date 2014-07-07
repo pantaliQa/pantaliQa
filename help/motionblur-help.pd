@@ -1,0 +1,38 @@
+#N canvas 0 0 600 540 10;
+#X obj -8 34 cnv 15 600 25 empty empty PantaliQa_module_info 20 12
+0 14 -233017 -66577 0;
+#X text 9 94 Description:;
+#X text 10 157 Methods:;
+#X text 11 342 Outlets:;
+#X text 9 284 Inlets:;
+#X text 8 77 Category:;
+#X text 83 305 method message;
+#X text 85 343 1 video stream;
+#X obj -6 458 cnv 15 600 25 empty empty Credits 20 12 0 14 -233017
+-66577 0;
+#X text 70 78 Effect \;;
+#X msg 87 160 status \$1;
+#X text 82 286 Video stream;
+#X text 153 159 turn on/off the effect \; [0 | 1];
+#X msg 88 192 blur \$1;
+#X text 156 189 param for delay slider \; [0 - 1];
+#X obj 441 91 cnv 15 148 50 empty empty empty 20 12 0 14 -1 -66577
+0;
+#X obj 441 126 cnv 15 15 15 empty empty empty 20 12 0 14 -260097 -66577
+0;
+#X obj 441 70 cnv 15 148 20 empty empty Motion_Blur 20 12 0 14 -128992
+-262144 0;
+#X obj 575 70 cnv 15 15 15 empty empty empty 20 12 0 14 -4034 -66577
+0;
+#X obj 440 70 cnv 15 10 10 empty empty Motion_Blur 20 12 0 14 -128992
+-262144 0;
+#X obj 440 70 cnv 15 15 15 empty empty empty 20 12 0 14 -260097 -66577
+0;
+#X obj 464 101 hsl 80 15 0 1 0 0 \$0-blur \$0-blur.rcv Blur 2 8 0 10
+-128992 -262144 -258113 0 1;
+#X obj 551 101 tgl 15 0 \$0-status \$0-status.rcv On/Off -10 23 0 10
+-128992 -262144 -258113 0 1;
+#X text 88 94 Motion blur video effect;
+#X text 8 486 by Luca Carrubba and Luca Franceschini for pantaliQa
+project. hardly based on pix_motionblur object from Gem - free to share/modify/cannibalize
+as you want - www.estereotips.net // info@estereotips.net;

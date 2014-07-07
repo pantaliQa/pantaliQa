@@ -1,0 +1,107 @@
+#N canvas 335 119 951 647 10;
+#X declare -path abs;
+#X declare -path utils/pdmtl;
+#X declare -path utils/OSCizer;
+#X obj 101 120 cnv 15 158 99 empty empty empty 20 12 0 14 -1 -66577
+0;
+#N canvas 7 190 450 300 readme 0;
+#X text 74 65 methods;
+#X msg 79 130 blur \$1;
+#X text 143 125 beetween 0 and 1;
+#X msg 82 186 status \$1;
+#X text 150 185 0 or 1;
+#X restore 833 89 pd readme;
+#N canvas 11 298 450 300 init 0;
+#X obj 259 114 declare -path abs;
+#X obj 260 134 declare -path utils/pdmtl;
+#X obj 261 154 declare -path utils/OSCizer;
+#X restore 837 117 pd init;
+#X obj 638 75 inlet;
+#N canvas 19 464 450 300 osc 0;
+#X obj 145 16 loadbang;
+#X msg 209 115 parse \$1;
+#X obj 120 186 s outcoming;
+#X obj 226 52 getdir;
+#X obj 235 27 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 121 121 r incoming;
+#X obj 307 -93 r osc-status;
+#X obj 307 -70 sel 1;
+#X obj 308 -31 once;
+#X obj 221 77 makefilename %s/rotating.pd;
+#X obj 121 149 OSCize rotating\$0;
+#X connect 1 0 10 0;
+#X connect 3 0 9 0;
+#X connect 4 0 3 0;
+#X connect 5 0 10 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 8 0 4 0;
+#X connect 9 0 1 0;
+#X connect 10 0 2 0;
+#X restore 838 138 pd osc;
+#X obj 101 101 cnv 15 158 20 empty empty Rotate 20 12 0 14 -128992
+-262144 0;
+#X text 570 298 by Luca Carrubba - for gemq.info project - free to
+share/modify/cannibalize as you want - www.estereotips.net // luca@estereotips.net
+// hardly based on the work of Alexandre Quessy for PDMTL abstraction
+library;
+#X obj 442 44 inlet;
+#X obj 245 100 cnv 15 15 15 empty empty empty 20 12 0 14 -4034 -66577
+0;
+#X obj 108 143 cnv 15 45 40 empty empty RotX 0 -6 0 14 -233017 -258113
+0;
+#X obj 115 147 knob 32 32 0 360 0 0 empty empty Xrot 0 -8 0 8 -128992
+-262144 -1 0 1;
+#X obj 155 143 cnv 15 45 40 empty empty RotY 0 -6 0 14 -233017 -258113
+0;
+#X obj 161 146 knob 32 32 0 360 0 0 empty empty empty 0 -8 0 8 -128992
+-262144 -1 3100 1;
+#X obj 205 143 cnv 15 45 40 empty empty RotZ 0 -6 0 14 -233017 -258113
+0;
+#X obj 211 146 knob 32 32 0 360 0 0 empty empty empty 0 -8 0 8 -128992
+-262144 -1 2700 1;
+#X obj 101 204 cnv 15 15 15 empty empty empty 20 12 0 14 -260097 -66577
+0;
+#X obj 456 183 rotateXYZ 0 0 0;
+#X obj 421 241 outlet;
+#X obj 100 100 cnv 15 15 15 empty empty empty 20 12 0 14 -260097 -66577
+0;
+#X obj 636 95 route reset rotX rotY rotZ;
+#X obj 89 21 hsl 128 15 0 360 0 0 empty \$0-rotX.rcv empty -2 -8 0
+10 -262144 -1 -1 0 1;
+#X obj 124 44 hsl 128 15 0 360 0 0 empty \$0-rotY.rcv empty -2 -8 0
+10 -262144 -1 -1 0 1;
+#X obj 213 67 hsl 128 15 0 360 0 0 empty \$0-rotZ.rcv empty -2 -8 0
+10 -262144 -1 -1 0 1;
+#X obj 70 315 hsl 128 15 0 360 0 0 \$0-rotX empty empty -2 -8 0 10
+-262144 -1 -1 0 1;
+#X obj 105 338 hsl 128 15 0 360 0 0 \$0-rotY empty empty -2 -8 0 10
+-262144 -1 -1 12700 1;
+#X obj 194 361 hsl 128 15 0 360 0 0 \$0-rotZ empty empty -2 -8 0 10
+-262144 -1 -1 11061 1;
+#X obj 165 191 bng 15 250 50 0 \$0-reset \$0-reset.rcv Reset -10 22
+0 10 -128992 -262144 -258113;
+#X msg 192 259 0 0 0;
+#X obj 215 284 unpack f f f;
+#X connect 3 0 19 0;
+#X connect 7 0 16 0;
+#X connect 10 0 23 0;
+#X connect 10 0 16 1;
+#X connect 12 0 24 0;
+#X connect 12 0 16 2;
+#X connect 14 0 25 0;
+#X connect 14 0 16 3;
+#X connect 16 0 17 0;
+#X connect 19 0 26 0;
+#X connect 19 1 16 1;
+#X connect 19 2 16 2;
+#X connect 19 3 16 3;
+#X connect 20 0 10 0;
+#X connect 21 0 12 0;
+#X connect 22 0 14 0;
+#X connect 27 0 28 0;
+#X connect 28 0 20 0;
+#X connect 28 1 21 0;
+#X connect 28 2 22 0;
+#X coords 0 -1 1 1 160 120 1 100 100;

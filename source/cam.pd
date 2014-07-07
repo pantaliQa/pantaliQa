@@ -1,0 +1,98 @@
+#N canvas 386 119 951 647 10;
+#X declare -path abs;
+#X declare -path utils/pdmtl;
+#X declare -path utils/OSCizer;
+#X obj 381 458 outlet;
+#N canvas 8 217 450 300 readme 0;
+#X text 74 65 methods;
+#X msg 79 130 device \$1;
+#X text 159 129 0 \, 1 \, 2 \, 3 \, 4 ...;
+#X restore 833 89 pd readme;
+#N canvas 7 190 450 300 init 0;
+#X obj 259 114 declare -path abs;
+#X obj 260 134 declare -path utils/pdmtl;
+#X obj 261 154 declare -path utils/OSCizer;
+#X restore 837 117 pd init;
+#X obj 543 55 inlet;
+#X obj 101 121 cnv 15 148 50 empty empty empty 20 12 0 14 -1 -66577
+0;
+#X obj 101 156 cnv 15 15 15 empty empty empty 20 12 0 14 -260097 -66577
+0;
+#N canvas 12 325 450 300 osc 0;
+#X obj 145 16 loadbang;
+#X msg 209 115 parse \$1;
+#X obj 120 186 s outcoming;
+#X obj 226 52 getdir;
+#X obj 235 27 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 121 121 r incoming;
+#X obj 307 -93 r osc-status;
+#X obj 307 -70 sel 1;
+#X obj 308 -31 once;
+#X obj 121 149 OSCize cam\$0;
+#X obj 221 77 makefilename %s/cam.pd;
+#X connect 1 0 9 0;
+#X connect 3 0 10 0;
+#X connect 4 0 3 0;
+#X connect 5 0 9 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 8 0 4 0;
+#X connect 9 0 2 0;
+#X connect 10 0 1 0;
+#X restore 838 138 pd osc;
+#X text 542 439 by Luca Carrubba - for gemq.info project - free to
+share/modify/cannibalize as you want - www.estereotips.net // luca@estereotips.net
+// hardly based on the work of Alexandre Quessy for PDMTL abstraction
+library;
+#X obj 100 57 cnv 15 15 15 empty empty empty 20 12 0 14 -260097 -66577
+0;
+#X obj 254 290;
+#X obj 101 101 cnv 15 148 20 empty \$0-name CAM_i 20 12 0 14 -128992
+-262144 0;
+#X obj 420 180 pix_video;
+#X obj 401 332 alpha;
+#X msg 562 206 device \$1;
+#X obj 148 146 hradio 15 1 0 3 \$0-device \$0-device.rcv Device 0 -8
+0 10 -128992 -262144 -258113 0;
+#X obj 546 103 route device;
+#X obj 234 100 cnv 15 15 15 empty empty empty 20 12 0 14 -4034 -66577
+0;
+#X msg 189 53;
+#X obj 157 37 inlet;
+#X msg 556 171 driver 0;
+#X obj 563 150 loadbang;
+#X obj 564 127 initbang;
+#X obj 442 44 gemhead;
+#X obj 677 298 prepend \$0;
+#X obj 672 245 startbang;
+#X obj 678 270 symbol \$1;
+#X msg 677 320 \; \$1-name label CAM_\$2;
+#N canvas 659 329 450 300 visualize 0;
+#X obj 68 103 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 57 132 list prepend \$1;
+#X obj 28 37 r /global/vis;
+#X msg 62 169 \; \$1 donecanvasdialog 1 -1 \$2 0 -1 1 1 150 71 100
+100;
+#X obj 36 65 r /\$1/vis;
+#X connect 0 0 1 0;
+#X connect 1 0 3 0;
+#X connect 2 0 1 0;
+#X connect 4 0 1 0;
+#X restore 804 249 pd visualize;
+#X obj 642 37 namecanvas \$1;
+#X connect 3 0 15 0;
+#X connect 11 0 12 0;
+#X connect 12 0 0 0;
+#X connect 13 0 11 0;
+#X connect 14 0 13 0;
+#X connect 15 0 14 0;
+#X connect 19 0 11 0;
+#X connect 20 0 19 0;
+#X connect 21 0 19 0;
+#X connect 22 0 11 0;
+#X connect 23 0 26 0;
+#X connect 24 0 25 0;
+#X connect 25 0 23 0;
+#X coords 0 -1 1 1 150 71 1 100 100;

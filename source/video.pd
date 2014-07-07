@@ -1,0 +1,130 @@
+#N canvas 136 194 1211 572 10;
+#X declare -path abs;
+#X declare -path utils/pdmtl;
+#X declare -path utils/OSCizer;
+#X declare -path utils/midiLearn;
+#X obj 99 10 inlet;
+#X obj 660 -30 namecanvas \$1;
+#X obj 373 792 outlet;
+#N canvas 5 136 450 300 readme 0;
+#X text 74 65 methods;
+#X msg 78 182 playmodes forward | rewind | palindrome;
+#X msg 77 243 video \$1;
+#X msg 79 130 frame \$1;
+#X msg 81 153 loop \$1 \$2;
+#X msg 79 217 velocity \$1;
+#X restore 821 77 pd readme;
+#N canvas 5 195 450 300 init 0;
+#X obj 259 114 declare -path abs;
+#X obj 260 134 declare -path utils/pdmtl;
+#X obj 261 154 declare -path utils/OSCizer;
+#X obj 264 173 declare -path utils/midiLearn;
+#X restore 825 105 pd init;
+#X text 729 806 by Luca Carrubba - for gemq.info project - free to
+share/modify/cannibalize as you want - www.estereotips.net // luca@estereotips.net
+;
+#X obj 478 178 gemhead;
+#X floatatom 559 688 5 0 0 0 - - -;
+#X symbolatom 613 649 40 0 0 0 - - -;
+#X text 623 669 height;
+#X floatatom 582 670 5 0 0 0 - - -;
+#X floatatom 537 707 5 0 0 0 - - -;
+#X text 576 707 #frames;
+#X obj 536 620 unpack f f f s f;
+#X floatatom 659 622 5 0 0 0 - - -;
+#X msg 494 93 load \$1;
+#X obj 402 -68 inlet;
+#X text 697 621 FPS;
+#X obj 491 42 symbol;
+#X obj 447 126 openpanel;
+#X obj 673 778 outlet end;
+#X obj 102 121 cnv 15 200 75 empty empty empty 20 12 0 14 -1 -66577
+0;
+#X obj 248 144 bng 30 250 50 0 empty empty OpenFile 0 -8 0 10 -128992
+-262144 -258113;
+#X obj 394 727 del 50;
+#X obj 101 181 cnv 15 15 15 empty empty empty 20 12 0 14 -260097 -66577
+0;
+#X obj 189 181 cnv 15 15 15 empty empty empty 20 12 0 14 -4034 -66577
+0;
+#X obj 287 180 cnv 15 15 15 empty empty empty 20 12 0 14 -4034 -66577
+0;
+#X obj 102 100 cnv 15 200 20 empty \$0-name VIDEO_PLAYER_uno 20 12
+0 14 -128992 -262144 0;
+#X obj 288 100 cnv 15 15 15 empty empty empty 20 12 0 14 -4034 -66577
+0;
+#N canvas 481 283 450 300 osc 0;
+#X obj 145 16 loadbang;
+#X msg 209 115 parse \$1;
+#X obj 120 186 s outcoming;
+#X obj 221 77 makefilename %s/video.pd;
+#X obj 226 52 getdir;
+#X obj 235 27 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 121 121 r incoming;
+#X obj 307 -93 r osc-status;
+#X obj 307 -70 sel 1;
+#X obj 308 -31 once;
+#X obj 122 148 OSCize \$1;
+#X connect 1 0 10 0;
+#X connect 3 0 1 0;
+#X connect 4 0 3 0;
+#X connect 5 0 4 0;
+#X connect 6 0 10 0;
+#X connect 7 0 8 0;
+#X connect 8 0 9 0;
+#X connect 9 0 5 0;
+#X connect 10 0 2 0;
+#X restore 826 126 pd osc;
+#X obj 113 135 myhslider Velocity;
+#X obj 113 156 myhslider Scratch;
+#X obj 479 533 gems.movies auto;
+#X obj 400 0 route scratch velocity video;
+#N canvas 331 269 450 300 visualize 0;
+#X obj 68 103 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 57 132 list prepend \$1;
+#X obj 28 37 r /global/vis;
+#X obj 36 65 r /\$1/vis;
+#X msg 62 169 \; \$1 donecanvasdialog 1 -1 \$2 0 -1 1 1 203 96 100
+100;
+#X connect 0 0 1 0;
+#X connect 1 0 4 0;
+#X connect 2 0 1 0;
+#X connect 3 0 1 0;
+#X restore 794 239 pd visualize;
+#X msg 811 390 \; \$1-name label VIDEO_PLAYER_\$2;
+#X obj 811 368 prepend \$0;
+#X obj 806 315 startbang;
+#X obj 812 340 symbol \$1;
+#X floatatom 560 469 5 0 0 0 - - -;
+#X obj 124 315 * 10;
+#X obj 557 408 autoscale 0 1;
+#X obj 486 792 outlet frames;
+#X connect 6 0 32 0;
+#X connect 11 0 41 2;
+#X connect 11 0 42 0;
+#X connect 13 0 11 0;
+#X connect 13 1 7 0;
+#X connect 13 2 10 0;
+#X connect 13 3 8 0;
+#X connect 13 4 14 0;
+#X connect 16 0 33 0;
+#X connect 18 0 32 1;
+#X connect 19 0 32 1;
+#X connect 22 0 19 0;
+#X connect 30 0 40 0;
+#X connect 31 0 41 0;
+#X connect 32 0 2 0;
+#X connect 32 2 13 0;
+#X connect 32 3 20 0;
+#X connect 33 0 31 0;
+#X connect 33 1 30 0;
+#X connect 33 2 18 0;
+#X connect 36 0 35 0;
+#X connect 37 0 38 0;
+#X connect 38 0 36 0;
+#X connect 39 0 32 3;
+#X connect 40 0 32 2;
+#X connect 41 0 39 0;
+#X coords 0 -1 1 1 203 96 1 100 100;

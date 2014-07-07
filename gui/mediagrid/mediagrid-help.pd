@@ -1,0 +1,43 @@
+#N canvas 528 24 538 514 10;
+#X floatatom 177 186 5 0 0 0 - - -;
+#X text 329 254 ATTENTION!!!!;
+#X text 288 295 check the readme file for more info;
+#X text 45 545 Mediagrid was developed from Luca Carrubba and Luca
+Franceschini as part of gemQ project;
+#X text 48 583 www.estereotips.net;
+#X text 48 598 www.gemq.info;
+#X text 239 278 Mediagrid needs ffmpeg binary in order to work!;
+#X text 37 455 Mediagrid abstraction is inspired from Videogrid external
+from PDVJtools package by Sergi Lario and Lluis Gomez. The big difference
+is that mediagrid can manage also audio files and it suposed to work
+on all platforms;
+#X text 212 186 sending a float you can select a cell;
+#X obj 15 9 cnv 15 400 70 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X text 40 83 mediagrid rows columns;
+#X text 35 14 Mediagrid object is an abstraction let you pick a file
+from your Disk in a graphical way. You can preload onto the mediagrid
+a Video file \, an Image file or an audio file. It accepts two arguments:
+;
+#X text 155 156 You have to choose a Dir to load thumbs!;
+#X text 211 649 CopyLeft Luca Carrubba and Luca Franceschini \, 2010
+;
+#X text 209 667 released under G.P.L.;
+#X obj 93 170 dirpanel;
+#X obj 91 148 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 24 227 openpanel;
+#X obj 25 212 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 83 281 mediagrid 2 2;
+#X symbolatom 83 410 50 0 0 0 - - -;
+#X msg 22 247 putvideo \$1;
+#X msg 93 191 putdir \$1;
+#X connect 0 0 19 0;
+#X connect 15 0 22 0;
+#X connect 16 0 15 0;
+#X connect 17 0 21 0;
+#X connect 18 0 17 0;
+#X connect 19 0 20 0;
+#X connect 21 0 19 0;
+#X connect 22 0 19 0;

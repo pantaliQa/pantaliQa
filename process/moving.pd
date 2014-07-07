@@ -1,0 +1,152 @@
+#N canvas 50 24 951 511 10;
+#X declare -path abs;
+#X declare -path utils/pdmtl;
+#X declare -path utils/OSCizer;
+#X obj 101 120 cnv 15 158 99 empty empty empty 20 12 0 14 -1 -66577
+0;
+#N canvas 8 217 450 300 readme 0;
+#X text 74 65 methods;
+#X text 143 125 beetween 0 and 1;
+#X msg 79 127 moveX \$1;
+#X text 143 150 beetween 0 and 1;
+#X msg 79 152 moveY \$1;
+#X text 145 180 beetween 0 and 1;
+#X msg 81 182 moveZ \$1;
+#X msg 77 211 reset \$1;
+#X text 145 214 bang;
+#X restore 833 89 pd readme;
+#N canvas 11 298 450 300 init 0;
+#X obj 259 114 declare -path abs;
+#X obj 260 134 declare -path utils/pdmtl;
+#X obj 261 154 declare -path utils/OSCizer;
+#X restore 837 117 pd init;
+#X obj 638 75 inlet;
+#N canvas 19 464 450 300 osc 0;
+#X obj 145 16 loadbang;
+#X msg 209 115 parse \$1;
+#X obj 120 186 s outcoming;
+#X obj 226 52 getdir;
+#X obj 235 27 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 121 121 r incoming;
+#X obj 307 -93 r osc-status;
+#X obj 307 -70 sel 1;
+#X obj 308 -31 once;
+#X obj 221 77 makefilename %s/moving.pd;
+#X obj 121 149 OSCize moving\$0;
+#X connect 1 0 10 0;
+#X connect 3 0 9 0;
+#X connect 4 0 3 0;
+#X connect 5 0 10 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 8 0 4 0;
+#X connect 9 0 1 0;
+#X connect 10 0 2 0;
+#X restore 838 138 pd osc;
+#X obj 101 101 cnv 15 158 20 empty empty Moving 20 12 0 14 -128992
+-262144 0;
+#X text 570 298 by Luca Carrubba - for gemq.info project - free to
+share/modify/cannibalize as you want - www.estereotips.net // luca@estereotips.net
+// hardly based on the work of Alexandre Quessy for PDMTL abstraction
+library;
+#X obj 442 44 inlet;
+#X obj 101 204 cnv 15 15 15 empty empty empty 20 12 0 14 -260097 -66577
+0;
+#X obj 421 241 outlet;
+#X obj 100 100 cnv 15 15 15 empty empty empty 20 12 0 14 -260097 -66577
+0;
+#X obj 110 134 hsl 128 15 0 1 0 0 \$0-x \$0-x.rcv X 10 8 0 10 -128992
+-262144 -258113 5150 1;
+#X obj 165 191 bng 15 250 50 0 \$0-reset \$0-reset.rcv Reset -10 22
+0 10 -128992 -262144 -258113;
+#X obj 215 284 unpack f f f;
+#X obj 110 149 hsl 128 15 0 1 0 0 \$0-y \$0-y.rcv Y 10 8 0 10 -128992
+-262144 -258113 6350 1;
+#X obj 110 163 hsl 128 15 0 1 0 0 \$0-z \$0-z.rcv Z 10 8 0 10 -128992
+-262144 -258113 9766 1;
+#X obj 200 430 autoscale;
+#X obj 384 522 gems.fit window;
+#X obj 386 499 gemhead;
+#X msg 513 481 fill;
+#X msg 545 532;
+#X floatatom 429 551 5 0 0 0 - - -;
+#X msg 198 411 load 0 1;
+#X obj 201 393 startbang;
+#X obj 508 441 startbang;
+#X floatatom 198 490 5 0 0 0 - - -;
+#X obj 433 107 translateXYZ 0 0 0;
+#X floatatom 255 632 5 0 0 0 - - -;
+#X obj 279 430 autoscale;
+#X msg 277 411 load 0 1;
+#X obj 280 393 startbang;
+#X floatatom 520 41 5 0 0 0 - - -;
+#X msg 79 417 load 0 1;
+#X obj 82 399 startbang;
+#X obj 81 436 autoscale -10 3;
+#X msg 229 254 0.5 0.5 0.769;
+#X obj 198 468 line;
+#X floatatom 278 494 5 0 0 0 - - -;
+#X obj 278 472 line;
+#X msg 198 450 \$1 150;
+#X msg 278 454 \$1 150;
+#X floatatom 100 512 5 0 0 0 - - -;
+#X obj 100 490 line;
+#X msg 100 472 \$1 150;
+#X obj 636 95 route reset moveX moveY moveZ;
+#X obj 242 102 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 243 103 cnv 15 15 15 empty empty empty 20 12 0 14 -4034 -66577
+0;
+#X obj 270 559 * 1;
+#X obj 427 580 * -1;
+#X obj 484 590 * 1;
+#X obj 513 590 * -1;
+#X connect 3 0 44 0;
+#X connect 7 0 26 0;
+#X connect 11 0 16 0;
+#X connect 12 0 35 0;
+#X connect 13 0 11 0;
+#X connect 13 1 14 0;
+#X connect 13 2 15 0;
+#X connect 14 0 28 0;
+#X connect 15 0 34 0;
+#X connect 16 0 39 0;
+#X connect 17 1 21 0;
+#X connect 17 2 49 0;
+#X connect 17 2 50 0;
+#X connect 18 0 17 0;
+#X connect 19 0 17 2;
+#X connect 21 0 47 0;
+#X connect 21 0 48 0;
+#X connect 22 0 16 0;
+#X connect 23 0 22 0;
+#X connect 24 0 19 0;
+#X connect 25 0 26 1;
+#X connect 26 0 9 0;
+#X connect 27 0 16 2;
+#X connect 28 0 40 0;
+#X connect 29 0 28 0;
+#X connect 30 0 29 0;
+#X connect 31 0 26 3;
+#X connect 32 0 34 0;
+#X connect 33 0 32 0;
+#X connect 34 0 43 0;
+#X connect 35 0 13 0;
+#X connect 36 0 25 0;
+#X connect 37 0 26 2;
+#X connect 38 0 37 0;
+#X connect 39 0 36 0;
+#X connect 40 0 38 0;
+#X connect 41 0 26 3;
+#X connect 42 0 41 0;
+#X connect 43 0 42 0;
+#X connect 44 0 12 0;
+#X connect 44 1 11 0;
+#X connect 44 2 14 0;
+#X connect 44 3 15 0;
+#X connect 47 0 27 0;
+#X connect 48 0 16 1;
+#X connect 49 0 28 1;
+#X connect 50 0 28 2;
+#X coords 0 -1 1 1 160 120 1 100 100;

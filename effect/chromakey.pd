@@ -1,0 +1,147 @@
+#N canvas 281 109 951 647 10;
+#X declare -path abs;
+#X declare -path utils/pdmtl;
+#X declare -path utils/OSCizer;
+#N canvas 396 94 450 300 readme 0;
+#X text 74 65 methods;
+#X text 173 128 beetween 0 and 1;
+#X msg 82 186 status \$1;
+#X text 150 185 0 or 1;
+#X text 190 220 beetween 0 and 1;
+#X msg 70 264 direction \$1;
+#X text 167 267 0 or 1;
+#X msg 79 130 tollerance \$1;
+#X msg 77 222 colors \$1 \$2 \$3;
+#X restore 1130 256 pd readme;
+#N canvas 11 298 450 300 init 0;
+#X obj 259 114 declare -path abs;
+#X obj 260 134 declare -path utils/pdmtl;
+#X obj 261 154 declare -path utils/OSCizer;
+#X restore 1134 284 pd init;
+#X obj 840 222 inlet;
+#X obj 193 121 cnv 15 218 169 empty empty empty 20 12 0 14 -1 -66577
+0;
+#N canvas 17 460 450 300 osc 0;
+#X obj 145 16 loadbang;
+#X msg 209 115 parse \$1;
+#X obj 120 186 s outcoming;
+#X obj 226 52 getdir;
+#X obj 235 27 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 121 121 r incoming;
+#X obj 307 -93 r osc-status;
+#X obj 307 -70 sel 1;
+#X obj 308 -31 once;
+#X obj 221 77 makefilename %s/chromakey.pd;
+#X obj 121 149 OSCize chromakey\$0;
+#X connect 1 0 10 0;
+#X connect 3 0 9 0;
+#X connect 4 0 3 0;
+#X connect 5 0 10 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 8 0 4 0;
+#X connect 9 0 1 0;
+#X connect 10 0 2 0;
+#X restore 1135 305 pd osc;
+#X obj 193 101 cnv 15 218 20 empty \$0-name CHROMA_yyyyyyyyyyy 20 12
+0 14 -128992 -262144 0;
+#X obj 649 255 inlet;
+#X obj 395 101 cnv 15 15 15 empty empty empty 20 12 0 14 -4034 -66577
+0;
+#X obj 559 612 pix_chroma_key;
+#X msg 588 589 direction \$1;
+#X obj 588 569 tgl 15 1 empty empty empty 0 -6 0 8 -262144 -1 -1 1
+1;
+#X floatatom 580 470 5 0 255 0 - - -;
+#X floatatom 591 527 5 0 255 0 - - -;
+#X obj 575 451 hsl 100 15 0 1 0 1 empty empty empty -2 -8 0 10 -262144
+-1 -1 5300 1;
+#X msg 572 487 value \$1 \$1 \$1;
+#X msg 581 545 range \$1 \$1 \$1;
+#X obj 559 392 pix_info;
+#X obj 732 551 pix_resize;
+#X obj 746 455 pack f f;
+#X msg 746 475 dimen \$1 \$2;
+#X obj 732 572 pix_yuv;
+#X obj 559 429 pix_yuv;
+#X text 867 465 by Luca Carrubba - for gemq.info project - free to
+share/modify/cannibalize as you want - www.estereotips.net // luca@estereotips.net
+// hardly based on the work of Alexandre Quessy for PDMTL abstraction
+library. This patch is from Max Neupert's wonderfull examples;
+#X obj 571 737 outlet;
+#X obj 584 508 hsl 100 15 0 1 0 1 empty empty empty -2 -8 0 10 -262144
+-1 -1 5200 1;
+#X obj 627 312 gate 2;
+#X obj 606 246 + 1;
+#X obj 192 101 cnv 15 15 15 empty empty empty 20 12 0 14 -260097 -66577
+0;
+#X obj 193 273 cnv 15 15 15 empty empty empty 20 12 0 14 -260097 -66577
+0;
+#X obj 734 408 inlet;
+#X obj 303 100 cnv 15 15 15 empty empty empty 20 12 0 14 -260097 -66577
+0;
+#X obj 192 102 cnv 15 15 15 empty empty empty 20 12 0 14 -260097 -66577
+0;
+#X obj 211 199 input.color.grid_;
+#X obj 791 266 route colors status tollerance direction;
+#X obj 241 174 myhslider Tollerance;
+#X obj 240 131 mytgl On/off;
+#X obj 327 130 mytgl Direction;
+#X obj 723 121 startbang;
+#X msg 734 153 0;
+#X obj 520 55 namecanvas \$1;
+#X obj 937 355 prepend \$0;
+#X obj 932 302 startbang;
+#X obj 938 327 symbol \$1;
+#N canvas 805 344 450 300 visualize 0;
+#X obj 68 103 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 57 132 list prepend \$1;
+#X obj 28 37 r /global/vis;
+#X obj 36 65 r /\$1/vis;
+#X msg 63 167 \; \$1 donecanvasdialog 1 -1 \$2 0 -1 1 1 221 191 191
+100;
+#X connect 0 0 1 0;
+#X connect 1 0 4 0;
+#X connect 2 0 1 0;
+#X connect 3 0 1 0;
+#X restore 1108 210 pd visualize;
+#X msg 937 377 \; \$1-name label CHROMA_\$2;
+#X connect 2 0 33 0;
+#X connect 6 0 25 1;
+#X connect 8 0 23 0;
+#X connect 9 0 8 0;
+#X connect 10 0 9 0;
+#X connect 13 0 11 0;
+#X connect 13 0 14 0;
+#X connect 14 0 8 0;
+#X connect 15 0 8 0;
+#X connect 16 0 21 0;
+#X connect 16 1 18 0;
+#X connect 16 2 18 1;
+#X connect 17 0 20 0;
+#X connect 18 0 19 0;
+#X connect 19 0 17 0;
+#X connect 20 0 8 1;
+#X connect 21 0 8 0;
+#X connect 24 0 12 0;
+#X connect 24 0 15 0;
+#X connect 25 0 23 0;
+#X connect 25 1 16 0;
+#X connect 26 0 25 0;
+#X connect 29 0 17 0;
+#X connect 32 0 14 0;
+#X connect 33 0 14 0;
+#X connect 33 1 35 0;
+#X connect 33 2 34 0;
+#X connect 33 3 36 0;
+#X connect 34 0 15 0;
+#X connect 35 0 26 0;
+#X connect 36 0 10 0;
+#X connect 37 0 38 0;
+#X connect 38 0 35 0;
+#X connect 40 0 44 0;
+#X connect 41 0 42 0;
+#X connect 42 0 40 0;
+#X coords 0 -1 1 1 221 191 1 191 100;

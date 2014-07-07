@@ -1,0 +1,10 @@
+#N canvas 451 117 573 361 10;
+#X declare -lib py;
+#X obj 191 87 pyext utils loadfonts;
+#X msg 195 55 /tmp/;
+#X obj 60 59 import py;
+#X obj 183 32 inlet;
+#X obj 197 163 outlet;
+#X connect 0 0 4 0;
+#X connect 1 0 0 1;
+#X connect 3 0 1 0;

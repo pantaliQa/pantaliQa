@@ -1,0 +1,191 @@
+#N canvas 9 94 844 670 10;
+#X declare -path abs;
+#X declare -path utils/pdmtl;
+#X declare -path utils/OSCizer;
+#N canvas 9 244 450 300 readme 0;
+#X text 74 65 methods;
+#X msg 79 130 target \$1;
+#X text 159 129 0 or 1;
+#X restore 843 99 pd readme;
+#N canvas 7 190 450 300 init 0;
+#X obj 259 114 declare -path abs;
+#X obj 260 134 declare -path utils/pdmtl;
+#X obj 261 154 declare -path utils/OSCizer;
+#X restore 847 127 pd init;
+#X obj 101 121 cnv 15 148 50 empty empty empty 20 12 0 14 -1 -66577
+0;
+#N canvas 13 352 450 300 osc 0;
+#X obj 145 16 loadbang;
+#X msg 209 115 parse \$1;
+#X obj 120 186 s outcoming;
+#X obj 226 52 getdir;
+#X obj 235 27 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 121 121 r incoming;
+#X obj 307 -93 r osc-status;
+#X obj 307 -70 sel 1;
+#X obj 308 -31 once;
+#X obj 121 149 OSCize mouse;
+#X obj 221 77 makefilename %s/mouse.pd;
+#X connect 1 0 9 0;
+#X connect 3 0 10 0;
+#X connect 4 0 3 0;
+#X connect 5 0 9 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 8 0 4 0;
+#X connect 9 0 2 0;
+#X connect 10 0 1 0;
+#X restore 848 148 pd osc;
+#X text 51 652 by Luca Carrubba - for gemq.info project - free to share/modify/cannibalize
+as you want - www.estereotips.net // luca@estereotips.net // hardly
+based on the work of Alexandre Quessy for PDMTL abstraction library
+;
+#X obj 110 67 cnv 15 15 15 empty empty empty 20 12 0 14 -260097 -66577
+0;
+#X obj 101 101 cnv 15 148 20 empty empty Mouse 20 12 0 14 -128992 -262144
+0;
+#X obj 148 137 hradio 15 1 0 2 \$0-target \$0-target.rcv Window 0 -8
+0 10 -128992 -262144 -258113 1;
+#X obj 234 101 cnv 15 15 15 empty empty empty 20 12 0 14 -4034 -66577
+0;
+#X obj 732 365 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 573 417 autoscale 0 1;
+#X obj 386 377 screensize;
+#X msg 391 431 load 0 \$1;
+#X obj 391 338 loadbang;
+#X obj 392 313 initbang;
+#X floatatom 552 440 5 0 0 0 - - -;
+#X msg 470 428 load 0 \$1;
+#X obj 661 418 autoscale 0 1;
+#X floatatom 640 441 5 0 0 0 - - -;
+#X obj 600 467 pack;
+#X obj 264 355 pack;
+#X obj 433 646 outlet;
+#X obj 562 645 outlet;
+#X obj 607 643 outlet;
+#X obj 663 644 outlet;
+#X obj 206 465 + 1;
+#X obj 154 270 tgl 15 0 empty empty empty 17 7 0 10 -128992 -262144
+-258113 1 1;
+#X obj 204 491 switch 2;
+#X obj 304 397 pack 0 0 0;
+#X obj 330 502 + 1;
+#X obj 328 528 switch 2;
+#X obj 485 644 outlet;
+#X obj 201 562 unpack;
+#X obj 338 557 unpack 0 0 0;
+#X obj 306 130 sel 0 1;
+#X msg 293 217 \; \$1-target.rcv label \$2;
+#X obj 294 198 prepend \$0;
+#X msg 302 158 symbol Output;
+#X msg 352 181 symbol Window;
+#X obj 412 46 inlet;
+#X obj 407 72 route target;
+#X obj 66 617 hsl 128 15 0 1 0 0 \$0-x empty empty -2 -8 0 10 -262144
+-1 -1 1534 1;
+#X obj 247 620 hsl 128 15 0 1 0 0 \$0-y empty empty -2 -8 0 10 -262144
+-1 -1 3820 1;
+#X obj 492 563 tgl 15 0 \$0-leftclick empty empty 17 7 0 10 -262144
+-1 -1 0 1;
+#X obj 529 563 tgl 15 0 \$0-middleclick empty empty 17 7 0 10 -262144
+-1 -1 0 1;
+#X obj 556 563 tgl 15 0 rightclick empty empty 17 7 0 10 -262144 -1
+-1 0 1;
+#X floatatom 490 492 5 0 0 0 - - -;
+#X obj 101 156 cnv 15 15 15 empty empty empty 20 12 0 14 -4034 -66577
+0;
+#X obj 234 156 cnv 15 15 15 empty empty empty 20 12 0 14 -4034 -66577
+0;
+#X obj 133 156 cnv 15 15 15 empty empty empty 20 12 0 14 -4034 -66577
+0;
+#X obj 165 156 cnv 15 15 15 empty empty empty 20 12 0 14 -4034 -66577
+0;
+#X obj 199 156 cnv 15 15 15 empty empty empty 20 12 0 14 -4034 -66577
+0;
+#X obj 208 597 pipe f 50;
+#X obj 264 300 gemmouse 1 1;
+#X obj 614 295 MouseState;
+#X obj 453 352 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 553 315 5 0 0 0 - - -;
+#X obj 596 189 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 654 156 loadbang;
+#X obj 592 131 initbang;
+#X msg 628 176 1;
+#X obj 600 252 metro 40;
+#X msg 423 127 0;
+#N canvas 655 339 450 300 visualize 0;
+#X obj 68 103 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 28 37 r /global/vis;
+#X msg 62 169 \; \$1 donecanvasdialog 1 -1 \$2 0 -1 1 1 150 72 100
+100;
+#X obj 36 66 r /mouse/vis;
+#X obj 57 132 list prepend mouse;
+#X connect 1 0 4 0;
+#X connect 3 0 4 0;
+#X connect 4 0 2 0;
+#X restore 662 97 pd visualize;
+#X obj 652 47 namecanvas mouse;
+#X obj 53 266 startbang;
+#X connect 7 0 26 0;
+#X connect 9 0 30 2;
+#X connect 10 0 15 0;
+#X connect 11 0 12 0;
+#X connect 11 1 16 0;
+#X connect 12 0 10 0;
+#X connect 13 0 11 0;
+#X connect 14 0 11 0;
+#X connect 15 0 19 0;
+#X connect 16 0 17 0;
+#X connect 17 0 18 0;
+#X connect 18 0 19 1;
+#X connect 19 0 27 2;
+#X connect 20 0 27 1;
+#X connect 25 0 27 0;
+#X connect 26 0 25 0;
+#X connect 26 0 29 0;
+#X connect 26 0 34 0;
+#X connect 27 0 32 0;
+#X connect 28 0 30 1;
+#X connect 29 0 30 0;
+#X connect 30 0 33 0;
+#X connect 32 0 21 0;
+#X connect 32 0 41 0;
+#X connect 32 1 31 0;
+#X connect 32 1 52 0;
+#X connect 33 0 22 0;
+#X connect 33 0 43 0;
+#X connect 33 1 23 0;
+#X connect 33 1 44 0;
+#X connect 33 2 24 0;
+#X connect 33 2 45 0;
+#X connect 34 0 37 0;
+#X connect 34 0 62 0;
+#X connect 34 1 38 0;
+#X connect 34 1 60 0;
+#X connect 36 0 35 0;
+#X connect 37 0 36 0;
+#X connect 38 0 36 0;
+#X connect 39 0 40 0;
+#X connect 40 0 7 0;
+#X connect 52 0 42 0;
+#X connect 53 0 20 0;
+#X connect 53 1 20 1;
+#X connect 53 2 28 0;
+#X connect 53 3 28 1;
+#X connect 53 4 28 2;
+#X connect 54 0 9 0;
+#X connect 54 1 10 0;
+#X connect 54 1 56 0;
+#X connect 54 2 17 0;
+#X connect 55 0 11 0;
+#X connect 57 0 61 0;
+#X connect 60 0 57 0;
+#X connect 61 0 54 0;
+#X connect 62 0 57 0;
+#X connect 65 0 7 0;
+#X coords 0 -1 1 1 150 72 1 100 100;

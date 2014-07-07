@@ -1,0 +1,143 @@
+#N canvas 306 27 894 614 10;
+#X msg 211 -117 clear;
+#X obj 326 158 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X floatatom 283 107 5 0 0 0 - - -;
+#X obj 183 36 vsl 15 115 0 175 0 0 \$0slider_s \$0slider_r empty 0
+-8 0 8 -1 -262144 -1 0 0;
+#X obj 1 32 hradio 15 1 0 12 \$0hr_0_s \$0hr_0_r test3 2 8 0 10 -1
+-1 -128992 1;
+#X obj 1 47 hradio 15 1 0 12 \$0hr_1_s \$0hr_1_r testdisk.log 2 8 0
+10 -1 -1 -128992 1;
+#X obj 1 62 hradio 15 1 0 12 \$0hr_2_s \$0hr_2_r title.png 2 8 0 10
+-1 -1 -128992 1;
+#X obj 1 77 hradio 15 1 0 12 \$0hr_3_s \$0hr_3_r title2.png 2 8 0 10
+-1 -1 -128992 1;
+#X obj 1 92 hradio 15 1 0 12 \$0hr_4_s \$0hr_4_r title3.png 2 8 0 10
+-1 -1 -128992 2;
+#X obj 1 107 hradio 15 1 0 12 \$0hr_5_s \$0hr_5_r tutagghiu 2 8 0 10
+-1 -1 -128992 1;
+#X obj 0 123 hradio 15 1 0 12 \$0hr_6_s \$0hr_6_r untitled_folder 2
+8 0 10 -1 -1 -128992 1;
+#X obj 1 137 hradio 15 1 0 12 \$0hr_7_s \$0hr_7_r workspace 2 8 0 10
+-1 -1 -128992 0;
+#X floatatom 562 141 5 0 0 1 size - -;
+#X text 605 233 Change the color of the next entry;
+#X obj 498 187 pack 0 10;
+#X obj 562 163 t b a;
+#X floatatom 498 141 5 0 2 1 font - -;
+#X msg 498 210 text.font \$1 \$2;
+#X text 673 278 Change the select color;
+#X obj 374 65 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 281 129 <- Use the scroll bar when there are too many items
+;
+#X obj 283 133 mtl/gBrowser \$0;
+#X obj 1 16 hradio 15 1 0 11 \$0label_radio_s \$0label_radio_r empty
+2 8 0 8 -1 -1 -262144 2;
+#X obj 1 16 cnv 15 197 15 empty \$0hider .. 3 9 0 8 -1 -262144 0;
+#X text 395 63 slider up;
+#X obj 307 249 outlet;
+#X obj 373 247 outlet;
+#X obj 0 0 cnv 15 15 15 empty empty empty 20 12 0 14 -4034 -66577 0
+;
+#X obj 0 153 cnv 15 15 15 empty empty empty 20 12 0 14 -4034 -66577
+0;
+#X obj 16 1 cnv 15 183 15 empty empty File_browser 20 8 0 10 -99865
+-262144 0;
+#X msg 634 135 10;
+#X obj 669 114 initbang;
+#X obj -18 -271 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 154 -112 inlet;
+#X obj 37 -113 t b a;
+#X obj -24 -160 splitfilename /;
+#X msg 496 364 select.colorRGB 255 0 0;
+#X msg 289 -86 label ..;
+#X obj -6 -308 initbang;
+#X obj 40 -293 loadbang;
+#X obj -51 -118 symbol;
+#X obj -21 -226 t b b;
+#X obj 300 -122 loadbang;
+#X obj 372 -118 initbang;
+#X obj -39 -37 t s b b;
+#X obj -44 -71 makefilename %s/*;
+#X obj 15 153 cnv 15 183 15 empty empty empty 20 8 0 10 -1 -1 0;
+#X obj 183 153 cnv 15 15 15 empty empty empty 20 12 0 14 -4034 -66577
+0;
+#X obj 256 282 symbol;
+#X obj 257 342 mergefilename /;
+#X obj 258 314 pack s s;
+#X obj 264 208 t b a a;
+#X obj 307 293 symbol;
+#X obj 259 368 t a b;
+#X obj 148 481;
+#X obj 256 395 makefilename %s/*;
+#X obj 490 12 print ggg;
+#X obj 494 -63 symbol;
+#X obj 493 -40 splitfilename /;
+#X obj 493 -18 makefilename %s/*;
+#X obj 489 -109 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -26 -186 folder_list;
+#X obj 422 34 t b b;
+#X obj 554 340 loadbang;
+#X obj 552 313 initbang;
+#X connect 0 0 21 1;
+#X connect 1 0 62 0;
+#X connect 2 0 21 0;
+#X connect 12 0 15 0;
+#X connect 14 0 17 0;
+#X connect 15 0 14 0;
+#X connect 15 1 14 1;
+#X connect 16 0 14 0;
+#X connect 17 0 21 1;
+#X connect 19 0 21 1;
+#X connect 21 0 51 0;
+#X connect 21 1 1 0;
+#X connect 21 2 26 0;
+#X connect 30 0 12 0;
+#X connect 31 0 30 0;
+#X connect 32 0 41 0;
+#X connect 33 0 2 0;
+#X connect 34 0 21 1;
+#X connect 34 0 37 0;
+#X connect 34 1 21 1;
+#X connect 35 0 40 1;
+#X connect 35 0 48 1;
+#X connect 35 0 57 1;
+#X connect 35 1 34 0;
+#X connect 36 0 21 1;
+#X connect 37 0 21 1;
+#X connect 38 0 32 0;
+#X connect 39 0 32 0;
+#X connect 40 0 45 0;
+#X connect 41 0 61 0;
+#X connect 41 1 0 0;
+#X connect 42 0 37 0;
+#X connect 43 0 37 0;
+#X connect 44 0 61 0;
+#X connect 44 1 0 0;
+#X connect 44 2 37 0;
+#X connect 45 0 44 0;
+#X connect 48 0 50 0;
+#X connect 49 0 53 0;
+#X connect 50 0 49 0;
+#X connect 51 0 48 0;
+#X connect 51 1 52 0;
+#X connect 51 2 25 0;
+#X connect 52 0 50 1;
+#X connect 53 0 55 0;
+#X connect 53 1 0 0;
+#X connect 55 0 61 0;
+#X connect 57 0 58 0;
+#X connect 58 0 59 0;
+#X connect 59 0 56 0;
+#X connect 59 0 61 0;
+#X connect 60 0 57 0;
+#X connect 61 0 35 0;
+#X connect 62 0 60 0;
+#X connect 62 1 0 0;
+#X connect 63 0 36 0;
+#X connect 64 0 36 0;
+#X coords 0 -1 1 1 199 169 1 0 0;

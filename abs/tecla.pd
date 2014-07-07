@@ -1,0 +1,8 @@
+#N canvas 1 94 450 300 10;
+#X obj 276 155 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0
+1;
+#X text 274 110 The right control key.;
+#X obj 276 128 input.key.r \$1;
+#X obj 307 267 outlet;
+#X connect 0 0 3 0;
+#X connect 2 0 0 0;

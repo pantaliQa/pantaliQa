@@ -1,0 +1,31 @@
+#N canvas 544 253 450 300 10;
+#X floatatom 260 114 10 0 0 1 millisecond_delay - -;
+#X obj 43 107 print unpacked;
+#X obj 161 67 mrpeach/unpackOSC;
+#X obj 161 93 mrpeach/pipelist;
+#X obj 164 136 mrpeach/routeOSC /segment;
+#X obj 167 165 route /1 /2 /3;
+#X obj 162 188 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 191 185 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 225 188 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 43 83 spigot 0;
+#X obj 86 56 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
+;
+#X obj 161 36 mrpeach/udpreceive 9998;
+#X obj 304 35 mrpeach/udpreceive 9997;
+#X connect 2 0 3 0;
+#X connect 2 0 4 0;
+#X connect 2 0 9 0;
+#X connect 2 1 0 0;
+#X connect 2 1 3 1;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;
+#X connect 5 1 7 0;
+#X connect 5 2 8 0;
+#X connect 9 0 1 0;
+#X connect 10 0 9 1;
+#X connect 11 0 2 0;
+#X connect 12 0 2 0;

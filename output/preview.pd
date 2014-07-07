@@ -1,0 +1,98 @@
+#N canvas 0 0 917 511 10;
+#X declare -path abs;
+#X declare -path utils/pdmtl;
+#X declare -path utils/OSCizer;
+#X obj 102 122 cnv 15 178 148 empty empty empty 20 12 0 14 -1 -66577
+0;
+#N canvas 8 217 450 300 readme 0;
+#X text 74 65 methods;
+#X text 143 125 beetween 0 and 1;
+#X msg 79 127 moveX \$1;
+#X text 143 150 beetween 0 and 1;
+#X msg 79 152 moveY \$1;
+#X text 145 180 beetween 0 and 1;
+#X msg 81 182 moveZ \$1;
+#X msg 77 211 reset \$1;
+#X text 145 214 bang;
+#X restore 843 99 pd readme;
+#N canvas 11 298 450 300 init 0;
+#X obj 259 114 declare -path abs;
+#X obj 260 134 declare -path utils/pdmtl;
+#X obj 261 154 declare -path utils/OSCizer;
+#X restore 847 127 pd init;
+#X obj 648 85 inlet;
+#X obj 431 251 outlet;
+#X obj 646 105 route reset moveX moveY moveZ;
+#X text 580 308 by Luca Carrubba - for gemq.info project - free to
+share/modify/cannibalize as you want - www.estereotips.net // luca@estereotips.net
+// hardly based on the work of Alexandre Quessy for PDMTL abstraction
+library;
+#X obj 283 65 #scale_to (120 160);
+#X obj 108 127 #see;
+#X obj 286 41 #from_pix \, colospace rgb;
+#X obj 306 -15 tgl 15 1 empty empty texture_on/off 20 7 0 8 -262144
+-1 -1 1 1;
+#X obj 323 -65 spigot;
+#X obj 368 -63 t b f;
+#X obj 356 -86 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0
+1;
+#X obj 296 -126 t a b;
+#X obj 285 -144 gemhead 101;
+#X obj 300 21 pix_snap;
+#X obj 357 -144 metro 70;
+#X obj 344 -37 loadbang;
+#X obj 320 -178 t f f;
+#X msg 338 -17 320 240;
+#N canvas 0 0 450 300 getWinDim 0;
+#X floatatom 163 134 5 0 0 0 - - -;
+#X obj 163 106 flow.value.changes gems.win/width;
+#X floatatom 163 189 5 0 0 0 - - -;
+#X obj 163 161 flow.value.changes gems.win/height;
+#X obj 148 221 pack 800 600;
+#X msg 148 247 \$1 \$2;
+#X obj 163 72 t b b;
+#X obj 164 49 startbang;
+#X obj 170 278 outlet;
+#X connect 0 0 4 0;
+#X connect 1 0 0 0;
+#X connect 1 1 0 0;
+#X connect 2 0 4 1;
+#X connect 3 0 2 0;
+#X connect 3 1 2 0;
+#X connect 4 0 5 0;
+#X connect 5 0 8 0;
+#X connect 6 0 1 0;
+#X connect 6 1 3 0;
+#X connect 7 0 6 0;
+#X restore 354 3 pd getWinDim;
+#X obj 334 -203 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+1 1;
+#X floatatom 426 120 5 0 0 0 - - -;
+#X obj 185 -202 startbang;
+#X obj 101 101 cnv 15 179 20 empty empty Preview 20 12 0 14 -128992
+-262144 0;
+#X obj 265 100 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 265 101 cnv 15 15 15 empty empty empty 20 12 0 14 -4034 -66577
+0;
+#X connect 3 0 5 0;
+#X connect 7 0 8 0;
+#X connect 9 0 7 0;
+#X connect 10 0 16 0;
+#X connect 11 0 12 0;
+#X connect 12 0 16 0;
+#X connect 12 1 13 0;
+#X connect 13 0 11 1;
+#X connect 14 0 16 0;
+#X connect 14 1 11 0;
+#X connect 15 0 14 0;
+#X connect 16 0 9 0;
+#X connect 17 0 13 0;
+#X connect 18 0 20 0;
+#X connect 19 0 17 0;
+#X connect 19 1 15 0;
+#X connect 20 0 16 2;
+#X connect 21 0 16 2;
+#X connect 22 0 19 0;
+#X connect 24 0 22 0;
+#X coords 0 -1 1 1 180 170 1 100 100;

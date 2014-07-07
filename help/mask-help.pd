@@ -1,0 +1,43 @@
+#N canvas 0 0 755 629 10;
+#X declare -path abs;
+#X declare -path utils/pdmtl;
+#X obj -28 15 cnv 15 600 25 empty empty PantaliQa_module_info 20 12
+0 14 -233017 -66577 0;
+#X text -11 75 Description:;
+#X text -10 160 Methods:;
+#X text -14 400 Outlets:;
+#X text -10 378 Inlets:;
+#X text -12 58 Category:;
+#X text 64 378 method message;
+#X obj -27 445 cnv 15 600 25 empty empty Credits 20 12 0 14 -233017
+-66577 0;
+#X text 50 59 Output \;;
+#X msg 42 160 fixed;
+#X msg 41 228 fadeIn \$1;
+#X msg 41 247 fadeOut \$1;
+#X msg 41 269 fadeInOut;
+#X msg 42 289 fadeOutIn;
+#X msg 42 208 alpha \$1;
+#X msg 41 186 colors \$1 \$2 \$3;
+#X msg 42 311 reset;
+#X text 65 402 No outlets;
+#X text -13 473 by Luca Carrubba and Luca Franceschini for pantaliQa
+project- free to share/modify/cannibalize as you want - www.estereotips.net
+// info@estereotips.net;
+#X text 85 161 set screen dimension equal to window;
+#X text 145 186 set screen color [0 - 1];
+#X text 112 207 set screen alpha;
+#X text 102 227 fadeIn transition in given time [mls];
+#X text 104 292 fadeOut first and FadeIn then transition in given time
+[mls];
+#X text 79 309 reset screen dimension to fixed;
+#X msg 43 330 on;
+#X text 70 330 turn on screen;
+#X msg 43 350 off;
+#X text 70 350 turn off screen;
+#X text 103 246 fadeOut transition in given time [mls];
+#X text 103 271 fadeIn first and FadeOut then transition in given time
+[mls];
+#X obj 342 46 ../output/mask;
+#X text 68 75 It's the render surface with 4 dragable;
+#X text 69 89 corner vectors.;

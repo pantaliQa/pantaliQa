@@ -1,0 +1,40 @@
+#N canvas 0 0 614 640 10;
+#X declare -path abs;
+#X declare -path utils/pdmtl;
+#X declare -path utils/OSCizer;
+#X obj -28 15 cnv 15 600 25 empty empty PantaliQa_module_info 20 12
+0 14 -233017 -66577 0;
+#X text -11 75 Description:;
+#X text -10 138 Methods:;
+#X text -9 391 Outlets:;
+#X text -9 357 Inlets:;
+#X text -12 58 Category:;
+#X text 50 59 Source \;;
+#X text 67 357 method message;
+#X obj -28 439 cnv 15 600 25 empty empty Credits 20 12 0 14 -233017
+-66577 0;
+#X obj 370 45 ../source/text;
+#X text 68 75 text player with txt reader capabilities;
+#X text 69 88 It is an independant layer on the front the others;
+#X text 68 102 Use the pager below font popup menu to visualize;
+#X text 68 115 fonts in the popup menu;
+#X msg 70 141 text \$1;
+#X msg 68 173 velocity \$1;
+#X msg 69 202 size \$1;
+#X msg 69 228 load \$1;
+#X msg 71 256 status \$1;
+#X msg 72 307 snap \$1;
+#X text 129 138 render the input text;
+#X text 152 171 control velocity slider \; [0 - 10];
+#X text 136 202 control size slider [1 - 100];
+#X text 136 228 load a txt file [needs the file path];
+#X text 158 253 turn on/off the module [0 | 1];
+#X msg 71 279 colors \$1 \$2 \$3;
+#X text 173 275 change the color of the text;
+#X text 174 285 [0-1 | 0-1 | 0-1];
+#X text 127 305 trasform text in texture (experimental) \; [0 |1];
+#X text 65 388 1 texture (with snap on);
+#X text -23 478 by Luca Carrubba - for gemq.info project - free to
+share/modify/cannibalize as you want - www.estereotips.net // luca@estereotips.net.
+Hardly based on the work of Alexandre Quessy on PDMTL abstractions
+;

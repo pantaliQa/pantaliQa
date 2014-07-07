@@ -1,0 +1,15 @@
+#N canvas 451 117 573 361 10;
+#N canvas 131 91 450 300 formattext 0;
+#X obj 74 -25 inlet;
+#X obj 72 56 pyext utils formattext;
+#X obj 112 19 unpack s f;
+#X obj 72 104 outlet;
+#X connect 0 0 2 0;
+#X connect 1 0 3 0;
+#X connect 2 0 1 1;
+#X connect 2 1 1 2;
+#X restore 30 74 pd formattext;
+#X obj 30 130 outlet;
+#X obj 34 37 inlet;
+#X connect 0 0 1 0;
+#X connect 2 0 0 0;

@@ -1,0 +1,70 @@
+#N canvas 703 153 795 516 10;
+#X obj 5 101 cnv 15 200 160 empty empty Communication 20 12 0 14 -233017
+-66577 0;
+#X msg 293 186 start;
+#X obj 220 146 t b b;
+#X text 452 45 Latency compensation;
+#X obj 231 331 symbol \$0-sampled;
+#X obj 231 287 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X floatatom 319 91 5 0 0 0 - - -;
+#X obj 231 308 metro 1000;
+#X obj 563 334 route start stop;
+#X msg 563 359 0;
+#X msg 617 358 1;
+#X obj 230 441 *~ 1;
+#X obj 531 250 t a a;
+#X msg 220 209 stop \, normalize;
+#X text 471 414 mute playback when recording to avoid feedback when
+not using headphones.;
+#X msg 346 46 compensate \$1;
+#X obj 346 20 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 220 187 delay 1500;
+#X obj 220 27 rj/soundinput;
+#X obj 220 90 rj/a_onset 128;
+#X obj 373 274 rj/u_record \$0-sampled 1500;
+#X obj 231 363 rj/s_fplaytable;
+#X obj 206 468 rj/soundoutput;
+#X obj 110 206 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 68 255 netsend;
+#X msg 66 146 connect localhost 6666;
+#X obj 67 125 loadbang;
+#X msg 109 228 send start;
+#X msg 134 205 send stop;
+#X obj 135 181 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 227 252 loadbang;
+#X connect 1 0 12 0;
+#X connect 2 0 17 0;
+#X connect 2 1 1 0;
+#X connect 4 0 21 0;
+#X connect 5 0 7 0;
+#X connect 6 0 19 1;
+#X connect 7 0 4 0;
+#X connect 8 0 9 0;
+#X connect 8 1 10 0;
+#X connect 9 0 11 1;
+#X connect 10 0 11 1;
+#X connect 11 0 22 0;
+#X connect 11 0 22 1;
+#X connect 12 0 20 1;
+#X connect 12 1 8 0;
+#X connect 13 0 12 0;
+#X connect 15 0 19 1;
+#X connect 16 0 15 0;
+#X connect 17 0 13 0;
+#X connect 17 0 29 0;
+#X connect 18 0 19 0;
+#X connect 19 0 2 0;
+#X connect 19 0 23 0;
+#X connect 19 1 20 0;
+#X connect 21 0 11 0;
+#X connect 23 0 27 0;
+#X connect 25 0 24 0;
+#X connect 26 0 25 0;
+#X connect 27 0 24 0;
+#X connect 28 0 24 0;
+#X connect 29 0 28 0;
+#X connect 30 0 5 0;

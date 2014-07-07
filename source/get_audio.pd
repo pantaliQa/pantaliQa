@@ -1,0 +1,192 @@
+#N canvas 38 87 1016 679 10;
+#X obj 101 120 cnv 15 270 130 empty empty empty 20 12 0 14 -1 -66577
+0;
+#X obj 101 100 cnv 15 270 20 empty empty Get-audio 20 12 0 14 -128992
+-262144 0;
+#X obj 423 130 adc~;
+#X obj 89 461 vsl 15 128 0 127 0 0 empty empty 60 0 -8 0 8 -262144
+-1 -1 7100 1;
+#X obj 118 459 vsl 15 128 0 127 0 0 empty empty 170 0 -8 0 8 -262144
+-1 -1 7100 1;
+#X obj 143 459 vsl 15 128 0 127 0 0 empty empty 310 0 -8 0 8 -262144
+-1 -1 6700 1;
+#X obj 167 459 vsl 15 128 0 127 0 0 empty empty 600 0 -8 0 8 -262144
+-1 -1 6400 1;
+#X obj 192 460 vsl 15 128 0 127 0 0 empty empty 1kh 0 -8 0 8 -262144
+-1 -1 6100 1;
+#X obj 214 460 vsl 15 128 0 127 0 0 empty empty 3kh 0 -8 0 8 -262144
+-1 -1 5900 1;
+#X obj 234 460 vsl 15 128 0 127 0 0 empty empty 6kh 0 -8 0 8 -262144
+-1 -1 5500 1;
+#X obj 257 460 vsl 15 128 0 127 0 0 empty empty 12kh 0 -8 0 8 -262144
+-1 -1 5500 1;
+#X obj 281 460 vsl 15 128 0 127 0 0 empty empty 14kh 0 -8 0 8 -262144
+-1 -1 5500 1;
+#X obj 305 460 vsl 15 128 0 100 0 0 empty empty 16kh 0 -8 0 8 -262144
+-1 -1 6985 1;
+#X obj 665 536 fiddle~ 1024 1 20 3;
+#X obj 792 552 bng 20 250 50 0 empty empty empty 0 -6 0 10 -262144
+-1 -1;
+#X obj 592 499 *~;
+#X text 469 72 test input pitch;
+#X obj 719 576 unpack;
+#X floatatom 719 626 0 0 0 0 - - -;
+#X floatatom 733 603 0 0 0 0 - - -;
+#X text 719 648 raw pitch;
+#X floatatom 748 557 5 0 0 0 - - -;
+#X obj 662 505 *~;
+#X obj 738 507 *~;
+#X obj 686 417 loadbang;
+#X obj 805 613 fiddle~ 1024 1 20 3;
+#X obj 932 629 bng 20 250 50 0 empty empty empty 0 -6 0 10 -262144
+-1 -1;
+#X obj 859 653 unpack;
+#X floatatom 859 703 0 0 0 0 - - -;
+#X floatatom 873 680 0 0 0 0 - - -;
+#X text 859 725 raw pitch;
+#X floatatom 888 634 5 0 0 0 - - -;
+#X obj 560 669 bng 20 250 50 0 empty empty empty 0 -6 0 10 -262144
+-1 -1;
+#X obj 589 666 unpack;
+#X floatatom 589 716 0 0 0 0 - - -;
+#X floatatom 603 693 0 0 0 0 - - -;
+#X text 589 738 raw pitch;
+#X floatatom 612 655 5 0 0 0 - - -;
+#X obj 491 104 loadbang;
+#X msg 762 451 20;
+#X msg 609 453 20;
+#X msg 686 449 20;
+#X obj 419 166 audio_analisis;
+#X floatatom 556 143 5 0 0 0 - - -;
+#X obj 97 716 / 100;
+#X floatatom 103 764 5 0 0 0 - - -;
+#X obj 157 716 / 100;
+#X floatatom 163 764 5 0 0 0 - - -;
+#X obj 205 708 / 100;
+#X floatatom 211 756 5 0 0 0 - - -;
+#X obj 253 705 / 100;
+#X floatatom 259 753 5 0 0 0 - - -;
+#X obj 298 703 / 100;
+#X floatatom 304 751 5 0 0 0 - - -;
+#X obj 338 704 / 100;
+#X floatatom 344 752 5 0 0 0 - - -;
+#X obj 384 704 / 100;
+#X floatatom 390 752 5 0 0 0 - - -;
+#X msg 496 129 17;
+#X obj 161 849 outlet;
+#X obj 214 850 outlet;
+#X obj 267 850 outlet;
+#X obj 429 701 outlet;
+#X obj 784 581 outlet;
+#X obj 924 658 outlet;
+#X obj 122 140 nbx 4 14 -1e+37 1e+37 0 0 empty empty IN_volume 0 -8
+0 10 -128992 -262144 -258113 0 256;
+#X obj 122 173 vsl 15 48 0 100 0 0 \$0-low empty Low -5 -9 0 10 -128992
+-262144 -258113 2867 1;
+#X obj 160 172 vsl 15 48 0 100 0 0 \$0-middle empty Middle -9 59 0
+10 -128992 -262144 -258113 2773 1;
+#X obj 194 172 vsl 15 48 0 100 0 0 \$0-high empty High -7 -9 0 10 -128992
+-262144 -258113 2585 1;
+#X obj 232 168 bng 15 250 50 0 \$0-bass.attack empty Bass.attack 17
+7 0 10 -128992 -262144 -258113;
+#X obj 232 187 bng 15 250 50 0 \$0-middle.attack empty Middle.attack
+17 7 0 10 -128992 -262144 -258113;
+#X obj 232 207 bng 15 250 50 0 \$0-high.attack empty high.attack 17
+7 0 10 -128992 -262144 -258113;
+#X obj 535 626 fiddle~ 1024 1 20 3;
+#X obj 101 235 cnv 15 15 15 empty empty empty 20 12 0 14 -4034 -66577
+0;
+#X obj 356 235 cnv 15 15 15 empty empty empty 20 12 0 14 -4034 -66577
+0;
+#X obj 157 235 cnv 15 15 15 empty empty empty 20 12 0 14 -4034 -66577
+0;
+#X obj 204 235 cnv 15 15 15 empty empty empty 20 12 0 14 -4034 -66577
+0;
+#X obj 255 235 cnv 15 15 15 empty empty empty 20 12 0 14 -4034 -66577
+0;
+#X obj 312 235 cnv 15 15 15 empty empty empty 20 12 0 14 -4034 -66577
+0;
+#X obj 712 107 namecanvas \$1;
+#N canvas 655 339 450 300 visualize 0;
+#X obj 68 103 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 57 132 list prepend \$1;
+#X obj 28 37 r /global/vis;
+#X obj 33 66 r /\$1/vis;
+#X msg 62 169 \; \$1 donecanvasdialog 1 -1 \$2 0 -1 1 1 272 151 100
+100;
+#X connect 0 0 1 0;
+#X connect 1 0 4 0;
+#X connect 2 0 1 0;
+#X connect 3 0 1 0;
+#X restore 814 259 pd visualize;
+#X connect 2 0 42 0;
+#X connect 2 1 42 0;
+#X connect 5 0 44 0;
+#X connect 6 0 46 0;
+#X connect 7 0 48 0;
+#X connect 7 0 66 0;
+#X connect 8 0 50 0;
+#X connect 8 0 67 0;
+#X connect 9 0 52 0;
+#X connect 10 0 54 0;
+#X connect 11 0 56 0;
+#X connect 12 0 68 0;
+#X connect 13 1 14 0;
+#X connect 13 2 17 0;
+#X connect 13 3 21 0;
+#X connect 14 0 63 0;
+#X connect 14 0 70 0;
+#X connect 15 0 72 0;
+#X connect 17 0 18 0;
+#X connect 17 1 19 0;
+#X connect 22 0 13 0;
+#X connect 23 0 25 0;
+#X connect 24 0 41 0;
+#X connect 24 0 39 0;
+#X connect 24 0 40 0;
+#X connect 25 1 26 0;
+#X connect 25 2 27 0;
+#X connect 25 3 31 0;
+#X connect 26 0 64 0;
+#X connect 26 0 71 0;
+#X connect 27 0 28 0;
+#X connect 27 1 29 0;
+#X connect 32 0 62 0;
+#X connect 32 0 69 0;
+#X connect 33 0 34 0;
+#X connect 33 1 35 0;
+#X connect 38 0 58 0;
+#X connect 39 0 23 1;
+#X connect 40 0 15 1;
+#X connect 41 0 22 1;
+#X connect 42 0 3 0;
+#X connect 42 1 15 0;
+#X connect 42 2 4 0;
+#X connect 42 3 5 0;
+#X connect 42 4 6 0;
+#X connect 42 5 7 0;
+#X connect 42 6 22 0;
+#X connect 42 7 8 0;
+#X connect 42 8 9 0;
+#X connect 42 9 10 0;
+#X connect 42 10 11 0;
+#X connect 42 11 12 0;
+#X connect 42 12 23 0;
+#X connect 43 0 42 1;
+#X connect 44 0 45 0;
+#X connect 46 0 47 0;
+#X connect 48 0 49 0;
+#X connect 49 0 59 0;
+#X connect 50 0 51 0;
+#X connect 51 0 60 0;
+#X connect 52 0 53 0;
+#X connect 54 0 55 0;
+#X connect 56 0 57 0;
+#X connect 57 0 61 0;
+#X connect 58 0 42 1;
+#X connect 65 0 43 0;
+#X connect 72 1 32 0;
+#X connect 72 2 33 0;
+#X connect 72 3 37 0;
+#X coords 0 -1 1 1 272 151 1 100 100;

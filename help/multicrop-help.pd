@@ -1,0 +1,49 @@
+#N canvas 542 37 607 610 10;
+#X obj 2 5 cnv 15 600 25 empty empty PantaliQa_module_info 20 12 0
+14 -233017 -66577 0;
+#X text 19 65 Description:;
+#X text 20 128 Methods:;
+#X text 21 362 Outlets:;
+#X text 19 304 Inlets:;
+#X text 18 48 Category:;
+#X text 93 325 method message;
+#X text 95 363 1 video stream;
+#X obj 4 478 cnv 15 600 25 empty empty Credits 20 12 0 14 -233017 -66577
+0;
+#X text 80 49 Effect \;;
+#X msg 96 131 status \$1;
+#X text 92 306 Video stream;
+#X text 159 130 turn on/off the effect \; [0 | 1];
+#X obj 439 67 cnv 15 158 89 empty empty empty 20 12 0 14 -1 -66577
+0;
+#X obj 439 142 cnv 15 15 15 empty empty empty 20 12 0 14 -260097 -66577
+0;
+#X obj 439 46 cnv 15 158 20 empty empty MultiCrop 20 12 0 14 -128992
+-262144 0;
+#X obj 561 82 tgl 15 0 \$0-status \$0-status.rcv On/Off -10 23 0 10
+-128992 -262144 -258113 0 1;
+#X obj 464 78 hsl 80 15 0 1 0 0 \$0-speed \$0-speed.rcv Speed 2 8 0
+10 -128992 -262144 -258113 0 1;
+#X obj 582 47 cnv 15 15 15 empty empty empty 20 12 0 14 -4034 -66577
+0;
+#X obj 438 46 cnv 15 15 15 empty empty empty 20 12 0 14 -260097 -66577
+0;
+#X obj 464 96 hsl 80 15 0 1 0 0 \$0-scale \$0-scale.rcv Scale 2 8 0
+10 -128992 -262144 -258113 0 1;
+#X obj 463 128 nbx 4 14 0 100 0 0 empty empty Columns 0 -8 0 10 -128992
+-262144 -258113 0 256;
+#X obj 525 129 nbx 4 14 0 100 0 0 empty empty Rows 0 -8 0 10 -128992
+-262144 -258113 0 256;
+#X text 98 65 Crop video input in N sub-rectangle.;
+#X msg 98 163 speed \$1;
+#X msg 97 195 scale \$1;
+#X msg 98 223 columns \$1;
+#X msg 97 255 rows \$1;
+#X text 166 160 spped of rotation iteraction \; [0 - 1];
+#X text 160 190 change size of the rectangles [0 | 1];
+#X text 169 252 number of rows \; [0 - N];
+#X text 169 220 number of columns \; [0 - N];
+#X text 16 515 by Luca Carrubba - for gemq.info project - free to share/modify/cannibalize
+as you want - www.estereotips.net // luca@estereotips.net // hardly
+based on the work of Alexandre Quessy for PDMTL abstraction library
+;

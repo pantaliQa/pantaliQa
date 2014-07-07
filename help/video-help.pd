@@ -1,0 +1,278 @@
+#N canvas 210 14 611 541 10;
+#X declare -path abs;
+#X declare -path utils/pdmtl;
+#X declare -path utils/OSCizer;
+#N canvas 0 0 660 502 \$0-video 0;
+#X obj 375 793 outlet;
+#N canvas 5 136 450 300 readme 0;
+#X text 74 65 methods;
+#X msg 78 182 playmodes forward | rewind | palindrome;
+#X msg 77 243 video \$1;
+#X msg 79 130 frame \$1;
+#X msg 81 153 loop \$1 \$2;
+#X msg 79 217 velocity \$1;
+#X restore 823 78 pd readme;
+#N canvas 7 190 450 300 init 0;
+#X obj 259 114 declare -path abs;
+#X obj 260 134 declare -path utils/pdmtl;
+#X obj 261 154 declare -path utils/OSCizer;
+#X restore 827 106 pd init;
+#X text 731 807 by Luca Carrubba - for gemq.info project - free to
+share/modify/cannibalize as you want - www.estereotips.net // luca@estereotips.net
+;
+#X obj 480 179 gemhead;
+#X floatatom 560 482 5 0 0 0 - - -;
+#X floatatom 561 689 5 0 0 0 - - -;
+#X symbolatom 615 650 40 0 0 0 - - -;
+#X text 625 670 height;
+#X floatatom 584 671 5 0 0 0 - - -;
+#X floatatom 539 708 5 0 0 0 - - -;
+#X text 578 708 #frames;
+#X text 531 730 current frame;
+#X obj 538 621 unpack f f f s f;
+#X floatatom 661 623 5 0 0 0 - - -;
+#X obj 560 504 sig~;
+#X msg 531 325 frame \$1;
+#X obj 600 353 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 600 372 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 534 303 hsl 128 15 0 1 0 0 \$0-video.frame \$0-video.frame.rcv
+empty -2 -8 0 10 -262144 -1 -1 0 1;
+#X obj 597 392 t f b;
+#X obj 544 415 pack f f;
+#X msg 544 437 loop \$1 \$2;
+#X obj 480 534 gems.movies~;
+#X msg 425 134 load \$1;
+#X obj 333 -27 inlet;
+#X text 699 622 FPS;
+#X obj 427 88 symbol;
+#X obj 794 347 initbang;
+#X obj 800 404 loadbang;
+#X msg 775 438 1;
+#X obj 300 149 openpanel;
+#X obj 679 569 outlet~;
+#X obj 732 569 outlet~;
+#X obj 488 793 outlet currentframe;
+#X obj 675 779 outlet end;
+#X obj 101 121 cnv 15 200 150 empty empty empty 20 12 0 14 -1 -66577
+0;
+#X obj 196 234 hsl 80 15 0 1 0 0 \$0-frame \$0-frame.rcv SCRATCH 2
+8 0 10 -128992 -262144 -258113 0 1;
+#X obj 196 189 hsl 80 15 0 1 0 0 \$0-loop.in \$0-loop.in.rcv LOOP-IN
+2 8 0 10 -128992 -262144 -258113 0 1;
+#X obj 196 219 hsl 80 15 0 1 0 0 \$0-loop.out \$0-loop.out.rcv LOOP-OUT
+2 8 0 10 -128992 -262144 -258113 0 1;
+#X obj 128 151 bng 30 250 50 0 empty empty OpenFile -20 -8 0 10 -128992
+-262144 -258113;
+#X obj 106 232 nbx 5 14 0 8 0 0 empty empty empty 0 -8 0 10 -128992
+-262144 -258113 1 256;
+#X obj 203 154 hradio 20 1 0 3 \$0-playmodes \$0-playmodes.rcv Playmodes
+3 -8 0 8 -128992 -262144 -258113 0;
+#X obj 273 452 sel 0 1 2;
+#X obj 260 558 *;
+#X obj 33 453 initbang;
+#X obj 55 532 loadbang;
+#X msg 267 515 1;
+#X floatatom 262 662 5 0 0 0 - - -;
+#X msg 314 525 -1;
+#X obj 311 487 t b b;
+#X obj 346 593 spigot 0;
+#X obj 349 617 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 272 482 t b b;
+#X msg 400 558 0;
+#X msg 414 525 1;
+#X obj 182 435 f;
+#X obj 177 404 t b f;
+#X obj 222 783 autoscale 0 1;
+#X msg 230 743 load 0 \$1;
+#X obj 526 767 print;
+#X obj 396 728 del 50;
+#X obj 347 643 sel 0 1;
+#X msg 347 668 1;
+#X msg 377 669 -1;
+#X obj 356 696 t b f b;
+#X obj 196 204 hsl 80 15 0 1 0 0 empty empty CURRENT 2 8 0 10 -128992
+-262144 -258113 0 1;
+#X obj 100 255 cnv 15 15 15 empty empty empty 20 12 0 14 -260097 -66577
+0;
+#X obj 146 255 cnv 15 15 15 empty empty empty 20 12 0 14 -4034 -66577
+0;
+#X obj 192 255 cnv 15 15 15 empty empty empty 20 12 0 14 -4034 -66577
+0;
+#X obj 244 255 cnv 15 15 15 empty empty empty 20 12 0 14 -4160 -66577
+0;
+#X obj 285 255 cnv 15 15 15 empty empty empty 20 12 0 14 -4160 -66577
+0;
+#X obj 100 100 cnv 15 200 20 empty empty VIDEO_PLAYER 20 12 0 14 -128992
+-262144 0;
+#X obj 100 100 cnv 15 15 15 empty empty empty 20 12 0 14 -4034 -66577
+0;
+#X obj 349 107 unpack f f;
+#X obj 331 41 route frame loop velocity video playmodes;
+#X obj 543 93 route forward rewind palindrome;
+#X msg 545 120 0;
+#X msg 609 127 1;
+#X msg 667 125 2;
+#X msg 32 267 1;
+#N canvas 481 283 450 300 osc 0;
+#X obj 145 16 loadbang;
+#X msg 209 115 parse \$1;
+#X obj 120 186 s outcoming;
+#X obj 221 77 makefilename %s/video.pd;
+#X obj 226 52 getdir;
+#X obj 235 27 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 121 121 r incoming;
+#X obj 307 -93 r osc-status;
+#X obj 307 -70 sel 1;
+#X obj 308 -31 once;
+#X obj 122 148 OSCize \$1;
+#X connect 1 0 10 0;
+#X connect 3 0 1 0;
+#X connect 4 0 3 0;
+#X connect 5 0 4 0;
+#X connect 6 0 10 0;
+#X connect 7 0 8 0;
+#X connect 8 0 9 0;
+#X connect 9 0 5 0;
+#X connect 10 0 2 0;
+#X restore 828 127 pd osc;
+#X obj 108 212 hsl 80 15 0 8 0 0 \$0-velocity \$0-velocity.rcv VELOCITY
+2 8 0 10 -128992 -262144 -258113 0 1;
+#X obj 167 232 bng 15 250 50 0 empty empty empty 17 7 0 10 -128992
+-1 -1;
+#X msg 209 313 1;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X restore 719 310 pd;
+#X obj 582 187 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X connect 4 0 23 0;
+#X connect 5 0 15 0;
+#X connect 10 0 59 0;
+#X connect 13 0 10 0;
+#X connect 13 1 6 0;
+#X connect 13 2 9 0;
+#X connect 13 3 7 0;
+#X connect 13 4 14 0;
+#X connect 15 0 23 2;
+#X connect 16 0 23 1;
+#X connect 17 0 21 0;
+#X connect 18 0 20 0;
+#X connect 19 0 16 0;
+#X connect 20 0 21 1;
+#X connect 20 1 17 0;
+#X connect 21 0 22 0;
+#X connect 22 0 23 1;
+#X connect 23 0 0 0;
+#X connect 23 1 34 0;
+#X connect 23 1 58 0;
+#X connect 23 2 13 0;
+#X connect 23 3 35 0;
+#X connect 23 3 51 0;
+#X connect 23 4 32 0;
+#X connect 23 5 33 0;
+#X connect 24 0 23 1;
+#X connect 25 0 75 0;
+#X connect 27 0 24 0;
+#X connect 28 0 30 0;
+#X connect 29 0 30 0;
+#X connect 30 0 5 0;
+#X connect 31 0 24 0;
+#X connect 37 0 19 0;
+#X connect 38 0 17 0;
+#X connect 39 0 18 0;
+#X connect 40 0 31 0;
+#X connect 41 0 57 0;
+#X connect 42 0 43 0;
+#X connect 43 0 53 0;
+#X connect 43 1 50 0;
+#X connect 43 2 55 0;
+#X connect 44 0 48 0;
+#X connect 45 0 42 0;
+#X connect 45 0 80 0;
+#X connect 46 0 42 0;
+#X connect 46 0 80 0;
+#X connect 47 0 44 1;
+#X connect 48 0 5 0;
+#X connect 49 0 44 1;
+#X connect 50 0 49 0;
+#X connect 50 0 56 0;
+#X connect 50 1 54 0;
+#X connect 51 0 52 0;
+#X connect 52 0 62 0;
+#X connect 53 0 47 0;
+#X connect 53 0 56 0;
+#X connect 53 1 54 0;
+#X connect 54 0 51 1;
+#X connect 55 0 51 1;
+#X connect 56 0 44 0;
+#X connect 57 0 56 0;
+#X connect 57 1 56 1;
+#X connect 58 0 66 0;
+#X connect 59 0 58 0;
+#X connect 61 0 55 0;
+#X connect 62 0 63 0;
+#X connect 62 1 64 0;
+#X connect 63 0 65 0;
+#X connect 64 0 65 0;
+#X connect 65 0 56 0;
+#X connect 65 1 44 1;
+#X connect 65 2 54 0;
+#X connect 65 2 61 0;
+#X connect 74 0 38 0;
+#X connect 74 1 39 0;
+#X connect 75 0 37 0;
+#X connect 75 1 74 0;
+#X connect 75 2 82 0;
+#X connect 75 3 27 0;
+#X connect 75 4 76 0;
+#X connect 76 0 77 0;
+#X connect 76 1 78 0;
+#X connect 76 2 79 0;
+#X connect 77 0 42 0;
+#X connect 78 0 42 0;
+#X connect 79 0 42 0;
+#X connect 80 0 41 0;
+#X connect 82 0 41 0;
+#X connect 83 0 84 0;
+#X connect 84 0 82 0;
+#X coords 0 -1 1 1 201 172 1 100 100;
+#X restore 364 42 pd \$0-video;
+#X obj -38 5 cnv 15 600 25 empty empty PantaliQa_module_info 20 12
+0 14 -233017 -66577 0;
+#X text -21 65 Description:;
+#X text -20 128 Methods:;
+#X text -19 313 Outlets:;
+#X text -19 279 Inlets:;
+#X text -22 48 Category:;
+#X text 40 49 Source \;;
+#X text 58 65 video player with audio capabilities. It looks;
+#X text 59 79 for .wav file with same name of the loaded video;
+#X text 58 92 file in the same directory. If it is found it;
+#X text 58 105 audio is loaded and synched with video \;;
+#X msg 60 218 video \$1;
+#X msg 60 131 frame \$1;
+#X msg 58 163 loop \$1 \$2;
+#X msg 59 192 velocity \$1;
+#X text 119 128 control scrath slider \; [0 - 1];
+#X text 126 160 set loop in and loop out point \; [0 - 1];
+#X text 134 190 control velocity slider \; [0 - 1];
+#X text 119 217 open video file \; [filepath];
+#X msg 61 246 playmodes \$1;
+#X text 150 245 set playmodes \; [play|rewind|palindrome];
+#X text 57 279 method message;
+#X text 55 310 1 video stream;
+#X text 54 327 2 current frame;
+#X text 54 343 3 packed video info [totalframe|width|height|filepath|FPS]
+;
+#X text 54 361 4 left audio channel;
+#X text 55 377 5 right audio channel;
+#X obj -36 429 cnv 15 600 25 empty empty Credits 20 12 0 14 -233017
+-66577 0;
+#X text -22 457 by Luca Carrubba and Luca Franceschini for pantaliQa
+project. hardly based on gems.video from pdmtl abstraction originally
+from Alexandre Quessy - free to share/modify/cannibalize as you want
+- www.estereotips.net // info@estereotips.net;
+#X coords 0 0 1 1 203 173 0;

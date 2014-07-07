@@ -1,0 +1,136 @@
+#N canvas 1 28 1278 736 10;
+#X declare -path abs;
+#X declare -path utils/pdmtl;
+#X declare -path utils/OSCizer;
+#N canvas 5 136 450 300 readme 0;
+#X restore 576 32 pd readme;
+#N canvas 8 217 450 300 init 0;
+#X obj 259 114 declare -path abs;
+#X obj 260 134 declare -path utils/pdmtl;
+#X obj 261 154 declare -path utils/OSCizer;
+#X restore 573 57 pd init;
+#N canvas 13 352 450 300 osc 0;
+#X obj 145 16 loadbang;
+#X msg 209 115 parse \$1;
+#X obj 120 186 s outcoming;
+#X obj 226 52 getdir;
+#X obj 235 27 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 121 121 r incoming;
+#X obj 307 -93 r osc-status;
+#X obj 307 -70 sel 1;
+#X obj 308 -31 once;
+#X obj 221 77 makefilename %s/mTracking.pd;
+#X obj 121 148 OSCize mTracking\$0;
+#X connect 1 0 10 0;
+#X connect 3 0 9 0;
+#X connect 4 0 3 0;
+#X connect 5 0 10 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 8 0 4 0;
+#X connect 9 0 1 0;
+#X connect 10 0 2 0;
+#X restore 574 78 pd osc;
+#X obj 101 121 cnv 15 180 90 empty empty empty 20 12 0 14 -1 -66577
+0;
+#X obj 100 101 cnv 15 180 20 empty empty MotionTracking 20 12 0 14
+-128992 -262144 0;
+#X obj 70 113 cnv 15 15 15 empty empty empty 20 12 0 14 -260097 -66577
+0;
+#X obj 266 195 cnv 15 15 15 empty empty empty 20 12 0 14 -4034 -66577
+0;
+#X obj 101 101 cnv 15 15 15 empty empty empty 20 12 0 14 -260097 -66577
+0;
+#X obj 100 101 cnv 15 1 1 empty empty MotionTracking 20 12 0 14 -128992
+-262144 0;
+#X obj 100 196 cnv 15 15 15 empty empty empty 20 12 0 14 -260097 -66577
+0;
+#X obj 696 502 hsl 80 15 0 1 0 0 \$0-posX empty PositionX 5 8 0 10
+-128992 -262144 -258113 5645 1;
+#X obj 363 226 pix_rgba;
+#X obj 382 440 pix_blob 4;
+#X msg 392 335 reset;
+#X obj 526 345 hsl 100 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 4261 1;
+#X obj 383 615 rectangle 0.01 1;
+#X obj 383 636 rectangle 1 0.01;
+#X obj 382 399 alpha;
+#X obj 429 400 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 383 593 translateXYZ 0 0 0.01;
+#X obj 381 532 gemhead;
+#X obj 493 283 loadbang;
+#X msg 493 304 0.2;
+#X obj 382 363 pix_background;
+#X obj 382 565 colorRGB 1 0 0;
+#X obj 507 476 > 0.02;
+#X floatatom 707 453 5 0 0 0 - - -;
+#X floatatom 649 431 5 0 0 0 - - -;
+#X obj 383 420 rotateXYZ 0 180 0;
+#X obj 572 499 * -8;
+#X obj 623 520 + 3;
+#X obj 572 520 + 4;
+#X obj 623 498 * -6;
+#X floatatom 767 426 5 0 0 0 - - -;
+#X obj 702 359 * 1;
+#X obj 364 201 inlet;
+#X obj 274 432 outlet;
+#X text 546 606 by Luca Carrubba - for gemq.info project - free to
+share/modify/cannibalize as you want - www.estereotips.net // luca@estereotips.net
+// this patch is originally from Max Neupert tutorial the tracking
+part.;
+#X obj 697 519 hsl 80 15 0 1 0 0 \$0-posY empty PositionY 5 8 0 10
+-128992 -262144 -258113 5645 1;
+#X obj 697 536 hsl 80 15 0 1 0 0 \$0-size empty Size 5 8 0 10 -128992
+-262144 -258113 0 1;
+#X obj 139 146 hsl 80 15 0 1 0 0 empty empty Bg_Substraction 5 8 0
+10 -128992 -262144 -258113 3400 1;
+#X obj 170 176 bng 15 250 50 0 empty empty Reset_Bg -20 -7 0 10 -128992
+-262144 -258113;
+#X obj 146 195 cnv 15 15 15 empty empty empty 20 12 0 14 -4034 -66577
+0;
+#X obj 205 195 cnv 15 15 15 empty empty empty 20 12 0 14 -4034 -66577
+0;
+#X obj 652 591 outlet;
+#X obj 702 588 outlet;
+#X obj 752 591 outlet;
+#X obj 316 93 startbang;
+#X connect 10 0 44 0;
+#X connect 11 0 23 0;
+#X connect 12 0 36 0;
+#X connect 12 1 29 0;
+#X connect 12 2 27 0;
+#X connect 12 2 32 0;
+#X connect 12 2 34 0;
+#X connect 12 3 25 0;
+#X connect 12 3 33 0;
+#X connect 13 0 23 0;
+#X connect 14 0 23 1;
+#X connect 15 0 16 0;
+#X connect 17 0 28 0;
+#X connect 18 0 17 1;
+#X connect 19 0 15 0;
+#X connect 20 0 24 0;
+#X connect 21 0 22 0;
+#X connect 22 0 14 0;
+#X connect 23 0 17 0;
+#X connect 24 0 19 0;
+#X connect 25 0 20 0;
+#X connect 26 0 38 0;
+#X connect 27 0 10 0;
+#X connect 28 0 12 0;
+#X connect 29 0 31 0;
+#X connect 30 0 19 2;
+#X connect 31 0 19 1;
+#X connect 32 0 30 0;
+#X connect 33 0 39 0;
+#X connect 34 0 26 0;
+#X connect 35 0 11 0;
+#X connect 38 0 45 0;
+#X connect 39 0 46 0;
+#X connect 40 0 14 0;
+#X connect 41 0 13 0;
+#X connect 47 0 40 0;
+#X connect 47 0 41 0;
+#X coords 0 -1 1 1 181 111 1 100 100;

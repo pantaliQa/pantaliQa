@@ -1,0 +1,36 @@
+#N canvas 210 14 611 541 10;
+#X obj -38 5 cnv 15 600 25 empty empty PantaliQa_module_info 20 12
+0 14 -233017 -66577 0;
+#X text -21 65 Description:;
+#X text -20 128 Methods:;
+#X text -19 313 Outlets:;
+#X text -19 279 Inlets:;
+#X text -22 48 Category:;
+#X text 40 49 Source \;;
+#X text 57 279 method message;
+#X text 55 310 1 video stream;
+#X obj -36 429 cnv 15 600 25 empty empty Credits 20 12 0 14 -233017
+-66577 0;
+#X text -22 457 by Luca Carrubba and Luca Franceschini for pantaliQa
+project. hardly based on gems.video from pdmtl abstraction originally
+from Alexandre Quessy - free to share/modify/cannibalize as you want
+- www.estereotips.net // info@estereotips.net;
+#X obj 412 89 cnv 15 148 50 empty empty empty 20 12 0 14 -1 -66577
+0;
+#X obj 412 124 cnv 15 15 15 empty empty empty 20 12 0 14 -260097 -66577
+0;
+#X obj 412 69 cnv 15 148 20 empty empty Cam 20 12 0 14 -128992 -262144
+0;
+#X obj 459 114 hradio 15 1 0 3 \$0-device \$0-device.rcv Device 0 -8
+0 10 -128992 -262144 -258113 0;
+#X obj 545 68 cnv 15 15 15 empty empty empty 20 12 0 14 -4034 -66577
+0;
+#X text 58 65 webcam player You can have many cam object as your system
+;
+#X text 59 79 accepts. Every objects needs to looks for a unique device
+;
+#X msg 60 131 device \$1;
+#X text 125 128 set webcam device access \; [0 - 3];
+#X text -13 376 N.B. On MAc os X you can use dialog interface to select
+device;
+#X coords 0 0 1 1 203 173 0;
